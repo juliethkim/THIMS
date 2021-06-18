@@ -25,9 +25,20 @@ class Service_model extends CI_Model
     function get_all_services()
     {
         $this->db->order_by('id', 'desc');
+        join('tbl_service_name')
+        join('tbl_service_category')
         return $this->db->get('services')->result_array();
 
 
+   ->from('table1 as t1')
+     ->where('t1.id', $id)
+     ->join('table2 as t2', 't1.id = t2.id', 'LEFT')
+     ->join('table3 as t3', 't1.id = t3.id', 'LEFT')
+     ->get();   ->from('table1 as t1')
+     ->where('t1.id', $id)
+     ->join('table2 as t2', 't1.id = t2.id', 'LEFT')
+     ->join('table3 as t3', 't1.id = t3.id', 'LEFT')
+     ->get();
          $query = $this->db->get('services');
         $result = $query->result();
 

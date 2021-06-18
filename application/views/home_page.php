@@ -181,6 +181,20 @@ $(document).ready(function(){
                      ?>
                </select>
               </div>
+
+
+                 <div class="col-md-6">
+                <select name="hospital_category" id="hospital_category" class="form-control input-lg">
+
+                  <option value="">Select Category</option>
+                     <?php
+                   foreach($hospital_category as $row)
+                    {
+                 echo '<option value="'.$row->category_id.'">'.$row->category.'</option>';
+                   }
+                     ?>
+               </select>
+              </div>
    </div>
 
 
@@ -588,6 +602,26 @@ $(document).ready(function(){
  
 });
 </script>
+
+
+
+
+<script>
+$(document).ready(function(){
+ $('#hospital_category').change(function(){
+  var category_id = $('#hospital_category').val();
+  if(category_id != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>home_page/fetch_hospital_category",
+    method:"POST",
+    data:{category_id:category_id},
+    success:function(data)
+     });
+});
+</script>
+
+
 
 
 </body>
