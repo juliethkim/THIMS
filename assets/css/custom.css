@@ -1,0 +1,67 @@
+
+.title-login b{
+	color: white;
+}
+
+.login-page {
+    background: #34527c;
+}
+.small-box>.small-box-footer {
+	position: relative;
+	text-align: center;
+	padding: 3px 0;
+	color: #fff;
+	color: rgba(255,255,255,.8);
+	display: block;
+	z-index: 10;
+	background: rgba(0,0,0,.1);
+	text-decoration: none;
+}
+
+	.errorWrap {
+		padding: 10px;
+		margin: 0 0 20px 0;
+		background: #dd3d36;
+		color:#fff;
+		-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+		box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	}
+	.succWrap{
+		padding: 10px;
+		margin: 0 0 20px 0;
+		background: #5cb85c;
+		color:#fff;
+		-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+		box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	}
+
+.skin-blue .main-header .navbar{
+	background-color: #34527c;
+}	
+.skin-blue .main-header li.user-header {
+    background-color: #34527c;
+}
+.skin-blue .main-header .logo {
+    background-color: #34527c;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+}
+.btn-info {
+    background-color: #34527c;
+    border-color: #34527c;
+}
+.small-box{
+	background-color: white;
+}
+.small-box h3 {
+    color: #34527c;
+}
+.small-box .icon {
+    color: #34527c;
+}
+.small-box>.small-box-footer {
+    color: #34527c;
+}
+.content-wrapper{
+	background-color: #b8bac7;
+}
