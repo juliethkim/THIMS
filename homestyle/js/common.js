@@ -28,6 +28,33 @@ jQuery(document).ready(function(){
 			});
 		}
 	});
+
+
+	jQuery(document).on("click", ".deleteHospital", function(){
+		var userId = $(this).data("id"),
+			hitURL = baseURL + "deleteHospital",
+			currentRow = $(this);
+		
+		var confirmation = confirm("Are you sure to delete this hospital ?");
+		
+		if(confirmation)
+		{
+			jQuery.ajax({
+			type : "POST",
+			dataType : "json",
+			url : hitURL,
+			data : { id : id } 
+			}).done(function(data){
+				console.log(data);
+				currentRow.parents('tr').remove();
+				if(data.status = true) { alert("Hospital successfully deleted"); }
+				else if(data.status = false) { alert("Hospital deletion failed"); }
+				else { alert("Access denied..!"); }
+			});
+		}
+	});
+
+
 	
 	
 	jQuery(document).on("click", ".searchList", function(){

@@ -28,7 +28,7 @@ class Hospital_info_model extends CI_Model
      */
     function get_all_hospital_info()
     {
-        $this->db->order_by('id', 'desc');
+        $this->db->order_by('id', 'asc');
         return $this->db->get('hospital_info')->result_array();
     }
 
@@ -61,10 +61,38 @@ class Hospital_info_model extends CI_Model
         return array_combine($cat_id, $cat_name);
     }
 
+ function get_hospital_ownership()
+    {
+        $query = $this->db->get('hospital_ownership');
+        $result = $query->result();
+
+        $cat_id = array('-CHOOSE-');
+        $cat_name = array('-CHOOSE-');
+        
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($cat_id, $result[$i]->ownership_id);
+            array_push($cat_name, $result[$i]->ownership_type);
+        }
+        return array_combine($cat_id, $cat_name);
+    }
 
 
+  function get_regions()
+    {
+        $query = $this->db->get('regions');
+        $result = $query->result();
 
-
+        $cat_id = array('-CHOOSE-');
+        $cat_name = array('-CHOOSE-');
+        
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($cat_id, $result[$i]->region_id);
+            array_push($cat_name, $result[$i]->region_name);
+        }
+        return array_combine($cat_id, $cat_name);
+    }
 
    /* function add_hospitals($params)
     {

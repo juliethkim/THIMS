@@ -12,7 +12,6 @@ class Hospital_info extends BaseController{
         $this->load->model('Hospital_ownership_model');
         $this->load->model('Hospital_category_model');
         $this->load->database();
-        //$this->load->model('Regions_model');
         $this->isLoggedIn(); 
     } 
 
@@ -84,23 +83,25 @@ class Hospital_info extends BaseController{
             $this->loadThis();
         }
         else
+
         {
             $this->load->library('form_validation');
   
         $data['hospital_category'] = $this->Hospital_info_model->get_hospital_category();
+        $data['hospital_ownership'] = $this->Hospital_info_model->get_hospital_ownership();
+        $data['regions'] = $this->Hospital_info_model->get_regions();
 		$this->form_validation->set_rules('name','Name','required|max_length[30]');
         $this->form_validation->set_rules('ownership','Ownership','required|max_length[30]');
         $this->form_validation->set_rules('category', 'Category', 'callback_validate_dropdown');
-        $this->form_validation->set_rules('region','Region','required|max_length[30]');
-        $this->loadViews("hospitals/addNew", $this->global,     $data , NULL);
-		
+        $this->form_validation->set_rules('regions','Region','required|max_length[30]');
+        $this->loadViews("hospitals/addNew", $this->global, $data , NULL);
 	
-
          if($this->form_validation->run() == FALSE)
             {
                 $this->add();
                 $this->load->view('hospitals/addNew', $data);
             }
+
             else
             {
                 $upload_image = $this->upload_image();
@@ -251,18 +252,19 @@ class Hospital_info extends BaseController{
             $this->load->library('form_validation');
 
 			$this->form_validation->set_rules('name','Name','required|max_length[30]'); 
-            $this->form_validation->set_rules('ownership','Ownership','required|integer');
+            $this->form_validation->set_rules('hospital_ownership','Ownership','required|integer');
             $this->form_validation->set_rules('hospital_category','Hospital Category','required|integer');
 			$this->form_validation->set_rules('region','Region','required|max_length[30]');
 	
 		
 		
+
 			if($this->form_validation->run())     
             {   
                 $params = array(
 					
 					'name' => $this->input->post('name'),
-                    'ownership' => $this->input->post('ownership'),
+                    'hospital_ownership' => $this->input->post('hospital_ownership'),
                     'hospital_category' => $this->input->post('hospital_category'),
 					'region' => $this->input->post('region'),
 				

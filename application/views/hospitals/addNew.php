@@ -2,6 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
+        
         <i class="fa fa-users"></i> Hospital Management
         <small>Add / Edit Hospital</small>
       </h1>
@@ -58,34 +59,23 @@
 
 
 
-                      <!--  <div class="col-md-6">
-                             <label for="Category" class="control-label"><span class="text-danger">*</span>Category</label>
-                            <div class="form-group">
-                                <select name="category" class="form-control">
-                                     <option value="">select category</option>
-                                     <option value="">Refferal hospital</option>
-                                     <option value="">Regional hospital</option>
-                                     <option value="">District hospital</option>
-                                     <option value="">Dispensary</option>
-                                <?php 
-                                foreach($all_hospital_category as $category)
-                                {
-                                    $selected = ($category['category'] == $this->input->post('category')) ? ' selected="selected"' : "";
-                                    echo '<option value="'.$category['category'].'" '.$selected.'>'.$category['type'].'</option>';
-                                } 
-                                ?>
-                                </select>
-                            <span class="text-danger"><?php echo form_error('category');?></span>
-                            </div>
-                        </div>
-                    </div>-->
+                    
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="form-group">
+                                    <label for="hospital_ownership">Ownership</label>
+                                     <?php $attributes = 'class="form-control" id="hospital_ownership"';
+                                     echo form_dropdown('hospital_ownership', $hospital_ownership, set_value('hospital_ownership'), $attributes); ?>
+                                 <span class="text-danger"><?php echo form_error('hospital_ownership'); ?></span>
+                                 </div>
+
+
+
+                        <!--<div class="col-md-6">
                             <label for="ownership" class="control-label"><span class="text-danger">*</span>Ownership</label>
                                  <div class="form-group">
                                     <select name="ownership" class="form-control">
-                                     <option value="">select Ownership</option>
+                                     <option value="">Select Ownership</option>
                                      <option value="">Government</option>
                                      <option value="">Private</option>
                                 <?php 
@@ -98,22 +88,16 @@
                                      </select>
                             <span class="text-danger"><?php echo form_error('ownerships');?></span>
                                  </div>
-                        </div>
-                             
-                           
-                               <!-- <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="region">Region</label>
-                                        <input type="text" class="form-control required " id="region" value="<?php echo set_value('region'); ?>" name="region" maxlength="120">
-                                    </div>
-                                </div>-->
-                                <div class="form-group">
-                                    <label for="regions">Region</label>
+                        </div>-->
+                          
+
+                     <div class="form-group">
+                             <label for="regions">Region</label>
                                      <?php $attributes = 'class="form-control" id="regions"';
                                      echo form_dropdown('regions', $regions, set_value('regions'), $attributes); ?>
-                                 <span class="text-danger"><?php echo form_error('regions'); ?></span>
-                                 </div>
-                               
+                                <span class="text-danger"><?php echo form_error('regions'); ?></span>
+                    </div>
+                       
                     </div>
                      
     
@@ -179,6 +163,7 @@
             'onclick="alert(\'Call your custom code here.\')">' +
             '<i class="glyphicon glyphicon-tag"></i>' +
             '</button>';
+
         $("#user_image").fileinput({
             overwriteInitial: true,
             maxFileSize: 1500,
@@ -198,3 +183,32 @@
 
     });
 </script>
+
+
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+
+            $('#submit').click(function() {
+
+                //get input data as a array
+                var post_data = {
+                    'message': $("#message").val(),
+                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>Hospital_info/insertByajax",
+                    data: post_data,
+                    success: function(message) {
+                        // return success message to the id='result' position
+                        $("#result").html(message);
+                    }
+                });
+
+            });
+
+        });
+    </script>

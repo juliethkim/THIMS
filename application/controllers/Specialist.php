@@ -11,6 +11,7 @@ class Specialist extends BaseController{
         $this->load->model('user_model');
         $this->load->database();
         $this->isLoggedIn();
+        $this->load->library('calendar');
     } 
 
     /*
@@ -20,25 +21,29 @@ class Specialist extends BaseController{
 
   function index()
     {
-        $data['specialists'] = $this->Specialist_model->get_all_specialists();
+      /*  $data['specialists'] = $this->Specialist_model->get_all_specialists();
          $this->global['pageTitle'] = 'THIMS : Dashboard';
         $this->loadViews("specialist/index", $this->global,    $data , NULL);
-        //$data['specialists'] = $this->Specialist_model->get_tbl_specialization();
-       // $this->form_validation->set_rules('specialization_id', 'specialization', 'callback_validate_dropdown|required');
+        $data['specialists'] = $this->Specialist_model->fetch_tbl_specialization();
+        $this->form_validation->set_rules('specialization_id', 'specialization', 'callback_validate_dropdown|required');
        
-        //$this->form_validation->set_rules('specialist_name', 'specialist_name', 'trim|required|max_length[128]');
+        $this->form_validation->set_rules('specialist_name', 'specialist_name', 'trim|required|max_length[128]');
         
-
-       // if ($this->form_validation->run() == FALSE)
-       /// {
-            // failed validation
-           // $this->load->view('specialist/add', $data);
-       // }
-       // else
-       // {
-            // here goes your code to insert into db
-           // echo "Specialist addition failed";
+        if ($this->form_validation->run() == FALSE)
+        {
+            //failed validation
+            $this->load->view('specialist/add', $data);
         }
+        else
+        {
+            // here goes your code to insert into db
+            echo "Specialist addition failed";
+        }*/
+         $data['specialists'] = $this->Specialist_model->get_all_specialists();
+          $data['tbl_specializaton'] = $this->Specialist_model->fetch_tbl_specialization();
+        $this->global['pageTitle'] = 'THIMS : Dashboard';
+  $this->load->view('specialist/index', $data , NULL);
+   
     }
     
     /*function validate_dropdown($str)
@@ -69,14 +74,22 @@ class Specialist extends BaseController{
     /*
      * Adding a new specialist
      */
+
+
     function add()
-    {   
+    {    
+        $data['tbl_specializaton'] = $this->Specialist_model->fetch_tbl_specialization();
+        $data['specialists'] = $this->Specialist_model->get_all_specialists();
+         $this->load->library('calendar');
+    echo $this->calendar->generate();
+
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
 				'specialist_name' => $this->input->post('specialist_name'),
-                'specialization' => $this->input->post('specialization_id'),
+                'specialization' => $this->input->post('specialization'),
             );
+
 
      
             
@@ -140,5 +153,5 @@ class Specialist extends BaseController{
             show_error('The specialist you are trying to delete does not exist.');
     }
     
-
+}
 

@@ -8,24 +8,42 @@ class Service extends BaseController{
         parent::__construct();
         $this->load->model('Service_model');
         $this->load->model('user_model');
+         $this->load->model('Dynamic_Dependent_model');
         $this->isLoggedIn();
+
     } 
 
     /*
      * Listing of services
      */
-    function index()
+    
+   /* function index()
     {
         $data['services'] = $this->Service_model->get_all_services();
         $this->global['pageTitle'] = 'THIMS : Dashboard';
 		$this->loadViews("service/index", $this->global, 	$data , NULL);
-    }
+    }*/
 
+function index()
+ {
+    //$data['tbl_service_category'] = $this->Service_model->fetch_tbl_service_category();
+   // $data['tbl_service_name'] = $this->Service_model->fetch_tbl_service_name();
+
+  //$data['hospital_category'] = $this->Dynamic_Dependent_model->fetch_hospital_category();
+     $data['services'] = $this->Service_model->get_all_services();
+        $this->global['pageTitle'] = 'THIMS : Dashboard';
+  $this->load->view('service/index', $data , NULL);
+ }
     /*
      * Adding a new service
      */
     function add()
-    {   
+    {  
+    $data['tbl_service_category'] = $this->Service_model->fetch_tbl_service_category();
+    $data['tbl_service_name'] = $this->Service_model->fetch_tbl_service_name();
+
+
+
         if(isset($_POST) && count($_POST) > 0)     
         {   
 
@@ -35,9 +53,10 @@ class Service extends BaseController{
                        
             );
 
+
            
             $service_id = $this->Service_model->add_service($params);
-            redirect('service/index');
+            redirect('service/add');
         }
         else
         {      

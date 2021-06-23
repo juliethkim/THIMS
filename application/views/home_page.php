@@ -29,18 +29,6 @@
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url();?>homestyle/css/style.css" rel="stylesheet">
 
-
-
-
-
-
-
-  <!-- =======================================================
-  * Template Name: HIMS - v4.1.0
-  * Template URL: https://bootstrapmade.com/HIMS-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -74,10 +62,7 @@
          
           <h1>Find Hospital Information as quick as possible</h1>
           <h2>We care your health and well being!</h2>
-         <!-- <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto"></a>
-            <a href="#" class="glightbox"></a>
-          </div>-->
+         
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <img src="homestyle/img/hero-img.png" class="img-fluid animated" alt="">
@@ -92,343 +77,105 @@
 
 
 
-<form action="views/hello_world" method="get">
+
+
+
+<style>
+ .box
+ {
+  width:100%;
+  max-width: 650px;
+  margin:0 auto;
+ }
+ </style>
+</head>
 <body>
- <div class="container">
-  <br />
-  <br />
-  <h3 align="center">Search for hospitals here</h3>
-  <!--<br />
-  <div id="prefetch">
-   <input type="text" name="search_box" id="search_box" class="form-control input-lg typeahead" placeholder="Search Here" />
-  </div>-->
- </div>
-
-
-<!--
-<script>
-$(document).ready(function(){
-  var sample_data = new Bloodhound({
-   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-   queryTokenizer: Bloodhound.tokenizers.whitespace,
-   prefetch:'<?php echo base_url(); ?>home/fetch',
-   remote:{
-    url:'<?php echo base_url(); ?>home/fetch/%QUERY',
-    wildcard:'%QUERY'
-   }
-  });
-  
-
-  $('#prefetch .typeahead').typeahead(null, {
-   name: 'sample_data',
-   display: 'name',
-   source:sample_data,
-   limit:10,
-   templates:{
-    suggestion:Handlebars.compile('<div class="row"><div class="col-md-2" style="padding-right:5px; padding-left:5px;"></div><div class="col-md-10" style="padding-right:5px; padding-left:5px;">{{name}}</div></div>')
-   }
-  });
-});
-</script>
-
-
-
-
-
-
-<div class="row clearfix">
-
- <!--<div class="form-group">
-            <label for="location">Location</label>
-            <?php $attributes = 'class="form-control" id="location"';
-            echo form_dropdown('location', $location, set_value('location'), $attributes); ?>
-            <span class="text-danger"><?php echo form_error('location'); ?></span>
-        </div>-->
-
-
-
-  <div class="row clearfix">
-     <?php $this->load->helper("form"); ?>
- <div class="col-md-6">
-                    <label for="provider" class="control-label"><span class="text-danger">*</span>Provider Type</label>
-                                <div class="form-group">
-                                    <select name="provider" class="form-control">
-                                     <option value="">look for</option>
-                                     <option value="">Hospitals</option>
-                                     <option value="">Specialists</option>
-                                <?php 
-                                foreach($all_provider as $provider)
-                                {
-                                    $selected = ($provider['provider'] == $this->input->post('provider')) ? ' selected="selected"' : "";
-                                    echo '<option value="'.$provider['provider'].'" '.$selected.'>'.$provider['type'].'</option>';
-                                } 
-                                ?>
-                                     </select>
-                                   <span class="text-danger"><?php echo form_error('provider');?></span>
-                                </div>
-                        </div>
-                     
-
-              <div class="col-md-6">
-                <select name="regions" id="regions" class="form-control input-lg">
-
-                  <option value="">Select Region</option>
-                     <?php
-                   foreach($regions as $row)
-                    {
-                 echo '<option value="'.$row->region_id.'">'.$row->region_name.'</option>';
-                   }
-                     ?>
-               </select>
-              </div>
-
-
-                 <div class="col-md-6">
-                <select name="hospital_category" id="hospital_category" class="form-control input-lg">
-
-                  <option value="">Select Category</option>
-                     <?php
-                   foreach($hospital_category as $row)
-                    {
-                 echo '<option value="'.$row->category_id.'">'.$row->category.'</option>';
-                   }
-                     ?>
-               </select>
-              </div>
-   </div>
-
-
-<input type="submit" name="submit" value="Search" align="center">
-</body>
-</form>
-</main>
-<br>
-<!--A part taht does put slide images-->
-
- <body style="background-color:white;">
-
-
-<div class="slideshow-container">
-
-<div class="mySlides fade">
-  <div class="numbertext">1 / 5</div>
-  <img src="resources/img/lab3.jfif" style="width:100%">
-  <div class="text">Caption Text</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 5</div>
-  <img src="resources/img/doc2.jfif" style="width:100%">
-  <div class="text">Caption Two</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 5</div>
-  <img src="resources/img/doc.jfif" style="width:100%">
-  <div class="text">Caption Three</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">4 / 5</div>
-  <img src="resources/img/lab1.jfif" style="width:100%">
-  <div class="text">Caption Four</div>
-</div>
-<div class="mySlides fade">
-  <div class="numbertext">5 / 5</div>
-  <img src="resources/img/doc2.jfif" style="width:100%">
-  <div class="text">Caption five</div>
-</div>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
-
-<script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 5000); // Change image every 5 seconds
-}
-</script>
-
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<body>
  <div class="container box">
   <br />
   <br />
- <!-- <h3 align="center">Codeigniter Dynamic Dependent Select Box using Ajax</h3>-->
-  <!--<br />
+  <h3 align="center">Search Hospital Information according to region,category & ownership</h3>
+  <br />
+
+  <form action="<?php echo site_url('#');?>" method = "POST">
   <div class="form-group">
    <select name="regions" id="regions" class="form-control input-lg">
     <option value="">Select Region</option>
     <?php
-   // foreach($regions as $row)
+    foreach($regions as $row)
     {
-    // echo '<option value="'.$row->region_id.'">'.$row->region_name.'</option>';
+     echo '<option value="'.$row->region_id.'">'.$row->region_name.'</option>';
     }
     ?>
    </select>
   </div>
-  <!--<br />
-  <div class="form-group">
-   <select name="hospital_info" id="hospital_info" class="form-control input-lg">
-    <option value="">Select Hospital</option>
+  <br />
+ 
+   <div class="form-group">
+   <select name="hospital_ownership" id="hospital_ownership" class="form-control input-lg">
+    <option value="">Select Ownership</option>
+    <?php
+    foreach($hospital_ownership as $row)
+    {
+     echo '<option value="'.$row->ownership_id.'">'.$row->ownership_type.'</option>';
+    }
+    ?>
    </select>
   </div>
-  <br />-->
-  <!-- <div class="form-group">
-   <select name="city" id="city" class="form-control input-lg">
-    <option value="">Select City</option>
+  <br />
+
+<div class="form-group">
+   <select name="hospital_category" id="hospital_category" class="form-control input-lg">
+    <option value="">Select Category</option>
+    <?php
+    foreach($hospital_category as $row)
+    {
+     echo '<option value="'.$row->category_id.'">'.$row->category.'</option>';
+    }
+    ?>
    </select>
   </div>
- </div> 
+  <br />
+
+ </div>
 </body>
 </html>
 <script>
 $(document).ready(function(){
  $('#regions').change(function(){
   var region_id = $('#regions').val();
-  if(region_id != '')
-  {
-   $.ajax({
-    url:"<?php //echo base_url(); ?>home_page/fetch_hospital_info",
-    method:"POST",
-    data:{region_id:region_id},
-    success:function(data)
-    /*{
-     $('#hospital_info').html(data);
-    // $('#tbl_specialization').html('<option value="">Select specialization</option>');
-    }
-   });
-  }
-  else
-  {
-   $('#hospital_info').html('<option value="">Select Hospital</option>');
-   //$('#tbl_specialization').html('<option value="">Select specialization</option>');
-  }
+  
  });
 
- $('#hospital_info').change(function(){
-  var hospital_id = $('#hospital_info').val();
-  if(hospital_id != '')
-  {
-   $.ajax({
-    url:"<?php //echo base_url(); ?>home_page/fetch_tbl_specialization",
-    method:"POST",
-    data:{hospital_id:hospital_id},
-    success:function(data)
-    {
-     $('#tbl_specialization').html(data);
-    }
-   });
-  }
-  else
-  {
-   $('#tbl_specialization').html('<option value="">Select specialization</option>');
-  }
- });
+$(document).ready(function(){
+ $('#hospital_ownership').change(function(){
+  var ownership_id = $('#hospital_ownership').val();
+});
+
+$(document).ready(function(){
+ $('#hospital_ownership').change(function(){
+  var ownership_id = $('#hospital_ownership').val();
+});
+
+
  
 });
-</script>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
- <!--<body>
-  <div class="container">
-   <br />
-   <br />
-   <br />
-   <h2 align="center">Live Data Search in Codeigniter using Ajax JQuery</h2><br />
-   <div class="form-group">
-    <form id="region_form"  method="POST">
-    <div class="input-group">
-     <span class="input-group-addon">Search</span>
-     <input type="text" id="region" oninput="load_data()" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
-    </div>
-  </form>
-   </div>
-   <br />
-   <div id="result"></div>
-  </div>
-  <div style="clear:both"></div>
-  <br />
-  <br />
-  <br />
-  <br />
- </body>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</script>
+ </div>
+</body>
+ 
+</form>
+<button  >Search</button>
+</main>
+<br>
 
 
 <br>
 <h3 align="center">Other services</h3>
 
-<body>
+<body align = "center">
 
 
-<a href="<?php echo base_url() ;?>index.php/Hello/newFunction">
+<a href="<?php echo base_url() ;?>index.php/Search/search_hospital">
     <img src="<?php echo base_url() ;?>resources/img/hospitalIcon1.jpg">
 </a>
 
@@ -439,7 +186,7 @@ $(document).ready(function(){
     <img src="<?php echo base_url() ;?>resources/img/iconServices.jfif">
 </a>
 
-<a href="<?php echo base_url() ;?>index.php/Hello/newFunction">
+<a href="<?php echo base_url() ;?>index.php/Specialist_search/search_specialist">
     <img src="<?php echo base_url() ;?>resources/img/specialistIcon.jpg">
 </a>
 
@@ -496,10 +243,7 @@ $(document).ready(function(){
         &copy; Copyright <strong><span>THIMS</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/HIMS-free-bootstrap-html-template-corporate/ -->
+      
         Designed by <a href="#">Julieth Kimaro</a>
       </div>
     </div>
@@ -532,96 +276,9 @@ $(document).ready(function(){
 
   <script src="<?php echo base_url(); ?>homestyle/js/main.js"></script>
 
-<script>
-   function load_data(query)
- {
-
-
-  $.ajax({
-     method: 'post',
-    processData: false,
-    contentType: false,
-    cache: false,
-    enctype: 'multipart/form-data',
-   url:"<?php echo base_url('show_region'); ?>",
-   type:"POST",
-   data:new FormData(document.getElementById('region_form')),
-   success:function(data){
-    console.log(data)
-    // $('#result').html(data);
-   }
-  })
- }
-
- 
-</script>
-
-<script>
-$(document).ready(function(){
- $('#regions').change(function(){
-  var region_id = $('#regions').val();
-  if(region_id != '')
-  {
-   $.ajax({
-    url:"<?php echo base_url(); ?>home_page/fetch_hospital_info",
-    method:"POST",
-    data:{region_id:region_id},
-    success:function(data)
-    /*{
-     $('#hospital_info').html(data);
-    // $('#tbl_specialization').html('<option value="">Select specialization</option>');
-    }
-   });
-  }
-  else
-  {
-   $('#hospital_info').html('<option value="">Select Hospital</option>');
-   //$('#tbl_specialization').html('<option value="">Select specialization</option>');
-  }*/
- });
-
- /*$('#hospital_info').change(function(){
-  var hospital_id = $('#hospital_info').val();
-  if(hospital_id != '')
-  {
-   $.ajax({
-    url:"<?php //echo base_url(); ?>home_page/fetch_tbl_specialization",
-    method:"POST",
-    data:{hospital_id:hospital_id},
-    success:function(data)
-    {
-     $('#tbl_specialization').html(data);
-    }
-   });
-  }
-  else
-  {
-   $('#tbl_specialization').html('<option value="">Select specialization</option>');
-  }
- });*/
- 
-});
-</script>
-
-
-
-
-<script>
-$(document).ready(function(){
- $('#hospital_category').change(function(){
-  var category_id = $('#hospital_category').val();
-  if(category_id != '')
-  {
-   $.ajax({
-    url:"<?php echo base_url(); ?>home_page/fetch_hospital_category",
-    method:"POST",
-    data:{category_id:category_id},
-    success:function(data)
-     });
-});
-</script>
-
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 </body>

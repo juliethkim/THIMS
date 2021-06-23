@@ -63,6 +63,7 @@ $route['logout'] = 'user/logout';
 $route['userListing'] = 'user/userListing';
 $route['userListing/(:num)'] = "user/userListing/$1";
 $route['addNew'] = "user/addNew";
+$route['/specialist/add'] = "specialist/add";
 $route['addNewUser'] = "user/addNewUser";
 $route['editOld'] = "user/editOld";
 $route['editOld/(:num)'] = "user/editOld/$1";
@@ -72,7 +73,7 @@ $route['profile'] = "user/profile";
 $route['profile/(:any)'] = "user/profile/$1";
 $route['profileUpdate'] = "user/profileUpdate";
 $route['profileUpdate/(:any)'] = "user/profileUpdate/$1";
-
+$route['specialist_view'] = "specialist_view";
 $route['do_upload'] = "user/do_upload";
 $route['loadChangePass'] = "user/loadChangePass";
 $route['changePassword'] = "user/changePassword";

@@ -14,6 +14,31 @@ class Service_model extends CI_Model
     /*
      * Get service by id
      */
+
+//fetch data from db to form
+
+
+ function fetch_tbl_service_category()
+ {
+  $this->db->order_by("service_category", "ASC");
+  $query = $this->db->get("tbl_service_category");
+  return $query->result();
+ }
+
+
+ function fetch_tbl_service_name()
+ {
+  $this->db->order_by("service_name", "ASC");
+  $query = $this->db->get("tbl_service_name");
+  return $query->result();
+ }
+
+
+
+
+
+
+
     function get_service($id)
     {
         return $this->db->get_where('services',array('id'=>$id))->row_array();
@@ -24,13 +49,13 @@ class Service_model extends CI_Model
      */
     function get_all_services()
     {
-        $this->db->order_by('id', 'desc');
-        join('tbl_service_name')
-        join('tbl_service_category')
+        $this->db->order_by('id', 'asc');
+        //join('tbl_service_name')
+        //join('tbl_service_category')
         return $this->db->get('services')->result_array();
 
 
-   ->from('table1 as t1')
+  /* ->from('table1 as t1')
      ->where('t1.id', $id)
      ->join('table2 as t2', 't1.id = t2.id', 'LEFT')
      ->join('table3 as t3', 't1.id = t3.id', 'LEFT')
@@ -38,7 +63,7 @@ class Service_model extends CI_Model
      ->where('t1.id', $id)
      ->join('table2 as t2', 't1.id = t2.id', 'LEFT')
      ->join('table3 as t3', 't1.id = t3.id', 'LEFT')
-     ->get();
+     ->get();*/
          $query = $this->db->get('services');
         $result = $query->result();
 

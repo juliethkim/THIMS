@@ -16,7 +16,7 @@
                         <th>Name</th>
 						<th>Category </th>
                         <th>Ownership </th>
-                        <th>Region</th>
+                        <th>Regions</th>
                     <th>Actions</th>
                     </tr>
                     <?php foreach($hospital_info as $h){ ?>
@@ -25,7 +25,7 @@
                         <td><?php echo $h['name']; ?></td>
 						<td><?php echo $h['category']; ?></td>
                         <td><?php echo $h['ownership']; ?></td>
-                        <td><?php echo $h['region']; ?></td>
+                        <td><?php echo $h['region_name']; ?></td>
 						<td>
                             <a href="<?php echo site_url('hospital_info/edit/'.$h['id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
                             <a href="<?php echo site_url('hospital_info/remove/'.$h['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>

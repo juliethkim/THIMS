@@ -9,6 +9,7 @@
                     <a href="<?php echo site_url('specialist/add'); ?>" class="btn btn-primary btn-sm">Add</a> 
                 </div>
             </div>
+            
             <div class="box-body">
                 <table class="table table-striped">
                     <tr>
