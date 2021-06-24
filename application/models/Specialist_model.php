@@ -1,7 +1,6 @@
 <?php
 
 
- 
 class Specialist_model extends CI_Model
 {
     function __construct()
@@ -23,6 +22,11 @@ class Specialist_model extends CI_Model
     function get_all_specialists()
     {
         $this->db->order_by('id', 'asc');
+
+$this->db->select("a.id, a.specialist_name, b.specialization");
+    $this->db->from("specialists as a");
+    $this->db->join('tbl_specialization as b', 'a.specialization_id = b.id');
+   
         return $this->db->get('specialists')->result_array();
 
           $query = $this->db->get('specialists');
@@ -39,12 +43,26 @@ class Specialist_model extends CI_Model
         return array_combine($cat_id, $cat_name);
     }
 
+
+
+      function count_specialists()
+    {
+        $this->db->from('specialists');
+        return $this->db->count_all_results();
+    }
+
+
+
+
     function fetch_tbl_specialization()
  {
-  $this->db->order_by("specialization", "ASC");
+  $this->db->order_by("id", "ASC");
   $query = $this->db->get("tbl_specialization");
   return $query->result();
  }
+
+
+
 
     /* function get_tbl_specialization()
     {

@@ -52,8 +52,18 @@ class Service_model extends CI_Model
         $this->db->order_by('id', 'asc');
         //join('tbl_service_name')
         //join('tbl_service_category')
-        return $this->db->get('services')->result_array();
+       
 
+$this->db->select("a.id, b.service_category, c.service_name, d.name");
+    $this->db->from("services as a");
+    $this->db->join('tbl_service_category as b', 'a.service_category_id = b.id');
+    $this->db->join('tbl_service_name as c', 'a.service_name_id = c.id');
+    $this->db->join('hospital_info as d', 'a.hospital_id = d.id');
+   
+         return $this->db->get('services')->result_array();
+
+          $query = $this->db->get('services');
+        $result = $query->result();
 
   /* ->from('table1 as t1')
      ->where('t1.id', $id)
@@ -79,12 +89,20 @@ class Service_model extends CI_Model
     }
     
         
+
+           function count_services()
+    {
+        $this->db->from('services');
+        return $this->db->count_all_results();
+    }
+
     /*
      * function to add new service
      */
     function add_service($params)
     {
         $this->db->insert('services',$params);
+        //$this->session_commit('services', $params);
         return $this->db->insert_id();
     }
     

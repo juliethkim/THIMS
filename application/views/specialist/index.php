@@ -22,7 +22,7 @@
                     <tr>
 						<td><?php echo $s['id']; ?></td>
 						<td><?php echo $s['specialist_name']; ?></td>
-                        <td><?php echo $s['specialization_id']; ?></td>
+                        <td><?php echo $s['specialization']; ?></td>
 
 						<td>
                             <a href="<?php echo site_url('specialist/edit/'.$s['id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 

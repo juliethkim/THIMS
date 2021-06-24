@@ -2,6 +2,7 @@
 	    <section class="content">
 <div class="row">
     <div class="col-md-12">
+
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">Hospital Info Listing</h3>
@@ -9,6 +10,7 @@
                     <a href="<?php echo site_url('hospital_info/add'); ?>" class="btn btn-success btn-sm">Add</a> 
                 </div>
             </div>
+
             <div class="box-body">
                 <table class="table table-striped">
                     <tr>
@@ -24,7 +26,7 @@
 						<td><?php echo $h['id']; ?></td>
                         <td><?php echo $h['name']; ?></td>
 						<td><?php echo $h['category']; ?></td>
-                        <td><?php echo $h['ownership']; ?></td>
+                        <td><?php echo $h['ownership_type']; ?></td>
                         <td><?php echo $h['region_name']; ?></td>
 						<td>
                             <a href="<?php echo site_url('hospital_info/edit/'.$h['id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 

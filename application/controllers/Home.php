@@ -1,11 +1,12 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/BaseController.php';
 
-class home extends CI_Controller {
+class Home extends CI_Controller {
 
       public function __construct(){
         parent::__construct();
         $this->load->model('Dynamic_Dependent_model');
+        $this->load->model('HospitalInfo_model');
         $this->load->database();
 
       }   
@@ -116,6 +117,7 @@ class home extends CI_Controller {
     # code...
     }
 
+
      function addRegions()
     {
            $this->load->model('User_model');
@@ -127,13 +129,11 @@ class home extends CI_Controller {
 
   function search_hospitalInfo()
     {
-        $hospitalInfo = $this->input->post('hospitalinfo');
-       // $regions = $this->input->post()
-      
-        $data['hospitalresults'] = $this->Search_hospitalInfo_model->search_hospitalInfo($hospitalInfo);
-     
+        $myhospital = $this->input->post('myhospital'); 
+        $data['results'] = $this->HospitalInfo_model->search_hospitalInfo($myhospital);
 
-        $this->load->view('hospitalInfo_view', $data);
+
+        $this->load->view('HospitalInfo_view', $data);
     }
 
    // public function show_regions($region_name)

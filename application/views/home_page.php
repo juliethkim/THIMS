@@ -96,7 +96,7 @@
   <h3 align="center">Search Hospital Information according to region,category & ownership</h3>
   <br />
 
-  <form action="<?php echo site_url('#');?>" method = "POST">
+  <form action="<?php echo site_url();?>index.php/Home/search_hospitalInfo" method = "POST">
   <div class="form-group">
    <select name="regions" id="regions" class="form-control input-lg">
     <option value="">Select Region</option>
@@ -162,9 +162,9 @@ $(document).ready(function(){
 </script>
  </div>
 </body>
- 
+ <button input type="submit" >Search</button>
+
 </form>
-<button  >Search</button>
 </main>
 <br>
 

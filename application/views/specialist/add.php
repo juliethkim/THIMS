@@ -96,12 +96,12 @@
 
 <br />
 
-
   <div class="form-group">
    <select name="tbl_specialization" id="tbl_specialization" class="form-control input-lg">
     <option value="">Specialization</option>
     <?php
     foreach($tbl_specialization as $row)
+      
     {
      echo '<option value="'.$row->id.'">'.$row->specialization.'</option>';
     }

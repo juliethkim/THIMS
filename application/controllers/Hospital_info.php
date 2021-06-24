@@ -75,7 +75,7 @@ class Hospital_info extends BaseController{
 */
 
 
-    function add()
+    function addNewHospital()
 
      {
         if($this->isAdmin() == TRUE)
@@ -94,12 +94,12 @@ class Hospital_info extends BaseController{
         $this->form_validation->set_rules('ownership','Ownership','required|max_length[30]');
         $this->form_validation->set_rules('category', 'Category', 'callback_validate_dropdown');
         $this->form_validation->set_rules('regions','Region','required|max_length[30]');
-        $this->loadViews("hospitals/addNew", $this->global, $data , NULL);
+        $this->loadViews("hospital_info/add", $this->global, $data , NULL);
 	
          if($this->form_validation->run() == FALSE)
             {
                 $this->add();
-                $this->load->view('hospitals/addNew', $data);
+                $this->load->view('hospital_info/add', $data);
             }
 
             else
@@ -125,12 +125,32 @@ class Hospital_info extends BaseController{
                     $this->session->set_flashdata('error', 'Hospital addition failed');
                 }
                 
-                redirect('hospitals/addNew');
+                redirect('hospital_info/add');
             }
 
 
 
+function addHospital()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            $this->load->model('Hospital_info_model');
+            // $data['roles'] = $this->user_model->getUserRoles();
 
+            //  $this->load->model('User_model');
+            // $data['regions'] = $this->user_model->getRegions();
+            
+
+
+            $this->global['pageTitle'] = 'THIMS : Add New Hospital';
+
+            $this->loadViews("hospital_info/add", $this->global, NULL);
+        }
+    }
 
 
 

@@ -15,13 +15,15 @@
 						<th>ID</th>
 						<th>Service Category</th>
                         <th>Service Name</th>
+                        <th>Hospital Name</th>
 						<th>Actions</th>
                     </tr>
                     <?php foreach($services as $s){ ?>
                     <tr>
 						<td><?php echo $s['id']; ?></td>
-						<td><?php echo $s['service_category_id']; ?></td>
-                        <td><?php echo $s['service_name_id']; ?></td>
+						<td><?php echo $s['service_category']; ?></td>
+                        <td><?php echo $s['service_name']; ?></td>
+                        <td><?php echo $s['name']; ?></td>
 						<td>
                             <a href="<?php echo site_url('service/edit/'.$s['id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
                             <a href="<?php echo site_url('service/remove/'.$s['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>

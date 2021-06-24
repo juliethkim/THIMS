@@ -93,5 +93,11 @@ $route['createPasswordUser'] = "login/createPasswordUser";
 
 $route['show_region'] = "Regions/show_region";
 $route['regions'] = "Regions/regions";
+$route['HospitalInfo_view'] = "user/HospitalInfo_view";
+// $route['hospitals/addNew'] = "hospitals/addNew";
+$route['addNewHospital'] = "hospital_info/add";
+$route['addHospital'] = "hospitals/addNew";
+
+// $route['addNewUser'] = "user/addNewUser";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

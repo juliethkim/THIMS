@@ -9,12 +9,6 @@
 <?php 
 	foreach ($results as $row) {?>
 <div class ='container'>
-	
-
-  <!--  <td><?php echo $row->name?></td>
-    <td><?php echo $row->category?></td>
-    <td><?php echo $row->ownership?></td>
-    <td><?php echo $row->region_name?></td>-->
 
 
 	<div class="card" style="width: 18rem;height: auto; display: block;">

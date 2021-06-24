@@ -11,7 +11,7 @@ class Specialist extends BaseController{
         $this->load->model('user_model');
         $this->load->database();
         $this->isLoggedIn();
-        $this->load->library('calendar');
+        // $this->load->library('calendar');
     } 
 
     /*
@@ -79,9 +79,10 @@ class Specialist extends BaseController{
     function add()
     {    
         $data['tbl_specializaton'] = $this->Specialist_model->fetch_tbl_specialization();
+        // $data['specialists'] = $this->Specialist_model->fetch_specialists();
         $data['specialists'] = $this->Specialist_model->get_all_specialists();
-         $this->load->library('calendar');
-    echo $this->calendar->generate();
+         //$this->load->library('calendar');
+    //echo $this->calendar->generate();
 
         if(isset($_POST) && count($_POST) > 0)     
         {   

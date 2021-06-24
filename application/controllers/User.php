@@ -153,6 +153,7 @@ function addRegion()
         {
             $this->loadThis();
         }
+        
         else
         {
             $this->load->library('form_validation');

@@ -7,7 +7,7 @@
         <small>Add / Edit Hospital</small>
       </h1>
     </section>
-    
+
     <section class="content">
 
     
@@ -15,9 +15,7 @@
             <!-- left column -->
             <div class="col-md-8">
               <!-- general form elements -->
-                
-                
-                
+  
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Enter Hospital Details</h3>
