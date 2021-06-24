@@ -78,7 +78,7 @@ class Specialist extends BaseController{
 
     function add()
     {    
-        $data['tbl_specializaton'] = $this->Specialist_model->fetch_tbl_specialization();
+        $data['tbl_specialization'] = $this->Specialist_model->fetch_tbl_specialization();
         // $data['specialists'] = $this->Specialist_model->fetch_specialists();
         $data['specialists'] = $this->Specialist_model->get_all_specialists();
          //$this->load->library('calendar');
@@ -88,7 +88,7 @@ class Specialist extends BaseController{
         {   
             $params = array(
 				'specialist_name' => $this->input->post('specialist_name'),
-                'specialization' => $this->input->post('specialization'),
+                'specialization_id' => $this->input->post('specialization_id'),
             );
 
 

@@ -26,7 +26,7 @@ class Specialist_model extends CI_Model
 $this->db->select("a.id, a.specialist_name, b.specialization");
     $this->db->from("specialists as a");
     $this->db->join('tbl_specialization as b', 'a.specialization_id = b.id');
-   
+   $this->db->join('hospital_info as c', 'a.hospital_id = c.id');
         return $this->db->get('specialists')->result_array();
 
           $query = $this->db->get('specialists');
