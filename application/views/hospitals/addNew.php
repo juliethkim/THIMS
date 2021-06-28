@@ -45,7 +45,7 @@
 
                                 <div class="form-group">
                                     <label for="hospital_category">Category</label>
-                                     <?php $attributes = 'class="form-control" id="hospital_category"';
+                                     <?php $attributes = 'class="form-control" id="category_id"  name="category_id" ';
                                      echo form_dropdown('hospital_category', $hospital_category, set_value('hospital_category'), $attributes); ?>
                                  <span class="text-danger"><?php echo form_error('hospital_category'); ?></span>
                                  </div>
@@ -62,7 +62,7 @@
                     <div class="row">
                         <div class="form-group">
                                     <label for="hospital_ownership">Ownership</label>
-                                     <?php $attributes = 'class="form-control" id="hospital_ownership"';
+                                     <?php $attributes = 'class="form-control" id="ownership_id" name="ownership_id"';
                                      echo form_dropdown('hospital_ownership', $hospital_ownership, set_value('hospital_ownership'), $attributes); ?>
                                  <span class="text-danger"><?php echo form_error('hospital_ownership'); ?></span>
                                  </div>
@@ -91,7 +91,7 @@
 
                      <div class="form-group">
                              <label for="regions">Region</label>
-                                     <?php $attributes = 'class="form-control" id="regions"';
+                                     <?php $attributes = 'class="form-control" id="regions"  name="regions_id"'  ;
                                      echo form_dropdown('regions', $regions, set_value('regions'), $attributes); ?>
                                 <span class="text-danger"><?php echo form_error('regions'); ?></span>
                     </div>

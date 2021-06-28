@@ -16,6 +16,8 @@ class User extends BaseController
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('Hospital_info_model');
+        $this->load->database();
         $this->isLoggedIn();   
     }
     
@@ -91,8 +93,9 @@ function addNew()
             $this->load->model('User_model');
             $data['roles'] = $this->user_model->getUserRoles();
 
-             $this->load->model('User_model');
-            $data['regions'] = $this->user_model->getRegions();
+
+             $this->load->model('Hospital_info_model');
+            $data['hospital'] = $this->User_model->getHospitalsById();
             
 
 
@@ -164,7 +167,8 @@ function addRegion()
             $this->form_validation->set_rules('password','Password','required|max_length[20]');
             $this->form_validation->set_rules('cpassword','Confirm Password','trim|required|matches[password]|max_length[20]');
             $this->form_validation->set_rules('role','Role','trim|required|numeric');
-            $this->form_validation->set_rules('mobile','Mobile Number','required|min_length[10]|numeric');
+             $this->form_validation->set_rules('hospitalId','hospitaladmin','trim|required|numeric');
+            $this->form_validation->set_rules('mobile','Mobile Number','required|max_length[10]');
             
             if($this->form_validation->run() == FALSE)
             {
@@ -247,7 +251,7 @@ function addRegion()
             $this->form_validation->set_rules('lname','Last Name','trim|required|max_length[128]');
             $this->form_validation->set_rules('email','Email','trim|required|valid_email|max_length[128]');
             $this->form_validation->set_rules('role','Role','trim|required|numeric');
-            $this->form_validation->set_rules('mobile','Mobile Number','required|min_length[10]');
+            $this->form_validation->set_rules('mobile','Mobile Number','required|min_length[10]|numeric');
             
             if($this->form_validation->run() == FALSE)
             {

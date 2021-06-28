@@ -19,7 +19,7 @@ class User_model extends CI_Model
         $this->db->join('tbl_roles as Role', 'Role.roleId = BaseTbl.roleId','left');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.email  LIKE '%".$searchText."%'
-                            OR  BaseTbl.name  LIKE '%".$searchText."%'
+                            OR  BaseTbl.fname  LIKE '%".$searchText."%'
                             OR  BaseTbl.mobile  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }
@@ -69,13 +69,13 @@ class User_model extends CI_Model
         $this->db->join('tbl_roles as Role', 'Role.roleId = BaseTbl.roleId','left');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.email  LIKE '%".$searchText."%'
-                            OR  BaseTbl.name  LIKE '%".$searchText."%'
+                            OR  BaseTbl.fname  LIKE '%".$searchText."%'
                             OR  BaseTbl.mobile  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }
         $this->db->where('BaseTbl.isDeleted', 0);
         $this->db->where('BaseTbl.roleId !=', 1);
-        $this->db->order_by('BaseTbl.userId', 'DESC');
+        $this->db->order_by('BaseTbl.userId', 'ASC');
         $this->db->limit($page, $segment);
         $query = $this->db->get();
         
@@ -96,6 +96,18 @@ class User_model extends CI_Model
         
         return $query->result();
     }
+
+
+ function getHospitalsById()
+    {
+        $this->db->select('id, name');
+        $this->db->from('hospital_info');
+        $this->db->where('id !=', 1);
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
 
 
   function getRegions()
@@ -152,11 +164,21 @@ class User_model extends CI_Model
      */
     function getUserInfo($userId)
     {
-        $this->db->select('userId, fname, lname, email, mobile, roleId, region_id');
+        $this->db->select('userId, fname, lname, email, mobile, roleId, hospital_id');
         $this->db->from('tbl_users');
         $this->db->where('isDeleted', 0);
 		$this->db->where('roleId !=', 1);
         $this->db->where('userId', $userId);
+        $query = $this->db->get();
+        
+        return $query->row();
+    }
+
+    function getadminhospital($admin_id)
+    {
+        $this->db->select('hospital_id');
+        $this->db->from('hospital_admin');
+        $this->db->where('admin_id', $admin_id);
         $query = $this->db->get();
         
         return $query->row();
@@ -308,6 +330,26 @@ class User_model extends CI_Model
         
         return $query->row();
     }
+
+//        function hospital_search($hospitalsearch)
+//     {
+//         $this->db->order_by('id', 'asc');
+//         // return $this->db->get('hospital_info')->result_array();
+
+// $this->db->select("a.id, a.name, b.category, c.ownership_type, d.region_name");
+//     $this->db->from("hospital_info as a");
+//     $this->db->join('hospital_category as b', 'a.category_id = b.category_id');
+//     $this->db->join('hospital_ownership as c', 'a.ownership_id = c.ownership_id'); 
+//     $this->db->join('regions as d', 'a.region_id = d.region_id');         
+//        // join $query = $this ->db->get('services')
+//         //return $query->result();
+//     $query = $this->db->get();
+//       $result = $query->result_array();
+//     return $result;
+    
+
+//     }
+
 
     /**
      * This function used to get user information by id with role

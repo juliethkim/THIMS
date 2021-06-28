@@ -8,11 +8,12 @@ class Specialist extends BaseController{
     {
         parent::__construct();
         $this->load->model('Specialist_model');
-        $this->load->model('user_model');
+        $this->load->model('User_model');
         $this->load->database();
         $this->isLoggedIn();
         // $this->load->library('calendar');
     } 
+
 
     /*
      * Listing of specialists
@@ -21,29 +22,11 @@ class Specialist extends BaseController{
 
   function index()
     {
-      /*  $data['specialists'] = $this->Specialist_model->get_all_specialists();
          $this->global['pageTitle'] = 'THIMS : Dashboard';
-        $this->loadViews("specialist/index", $this->global,    $data , NULL);
-        $data['specialists'] = $this->Specialist_model->fetch_tbl_specialization();
-        $this->form_validation->set_rules('specialization_id', 'specialization', 'callback_validate_dropdown|required');
-       
-        $this->form_validation->set_rules('specialist_name', 'specialist_name', 'trim|required|max_length[128]');
-        
-        if ($this->form_validation->run() == FALSE)
-        {
-            //failed validation
-            $this->load->view('specialist/add', $data);
-        }
-        else
-        {
-            // here goes your code to insert into db
-            echo "Specialist addition failed";
-        }*/
          $data['specialists'] = $this->Specialist_model->get_all_specialists();
-          $data['tbl_specializaton'] = $this->Specialist_model->fetch_tbl_specialization();
-        $this->global['pageTitle'] = 'THIMS : Dashboard';
-  $this->load->view('specialist/index', $data , NULL);
-   
+         $data['tbl_specializaton'] = $this->Specialist_model->fetch_tbl_specialization();
+        
+        $this->loadViews('specialist/index', $this->global, $data , NULL);   
     }
     
     /*function validate_dropdown($str)
@@ -89,6 +72,9 @@ class Specialist extends BaseController{
             $params = array(
 				'specialist_name' => $this->input->post('specialist_name'),
                 'specialization_id' => $this->input->post('specialization_id'),
+                'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
+
+
             );
 
 
@@ -112,7 +98,7 @@ class Specialist extends BaseController{
     function edit($id)
     {   
         // check if the specialist exists before trying to edit it
-        $data['specialist'] = $this->Specialist_model->get_specialist($id);
+        $data['specialists'] = $this->Specialist_model->get_specialist($id);
         
         if(isset($data['specialist']['id']))
         {
@@ -121,7 +107,7 @@ class Specialist extends BaseController{
                 $params = array(
 					'specialist_name' => $this->input->post('specialist_name'),
                 
-                    'specialization' => $this->input->post('specialization'),
+                    'specialization' => $this->input->post('specialization_id'),
                 );
 
                 $this->Specialist_model->update_specialist($id,$params);            

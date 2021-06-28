@@ -1,6 +1,7 @@
 <div class="content-wrapper">
 	    <section class="content">
 <div class="row">
+  
     <div class="col-md-8">
       	<div class="box box-info">
             <div class="box-header with-border">
@@ -86,7 +87,7 @@
 
  
    <div class="form-group">
-   <select name="tbl_service_category" id="tbl_service_category" class="form-control input-lg">
+   <select name="service_category_id" id="service_category_id" class="form-control input-lg">
     <option value="">Service Category</option>
     <?php
     foreach($tbl_service_category as $row)
@@ -101,7 +102,7 @@
 
 
   <div class="form-group">
-   <select name="tbl_service_name" id="tbl_service_name" class="form-control input-lg">
+   <select name="service_name_id" id="service_name_id" class="form-control input-lg">
     <option value="">Service Name</option>
     <?php
     foreach($tbl_service_name as $row)

@@ -107,7 +107,31 @@
                                             ?>
                                         </select>
                                     </div>
-                                </div>    
+                                </div>  
+
+
+
+
+                             <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hospital">Hospital Name</label>
+                                        <select class="form-control required" id="hospital" name="hospital">
+                                            <option value="0">Select where this user works at</option>
+                                            <?php
+                                            if(!empty($hospitals))
+                                            {
+                                                foreach ($hospitals as $hp)
+                                                {
+                                                    ?>
+                                                    <option value="<?php echo $hp->id ?>" <?php if($hp->id == set_value('hospital')) {echo "selected=selected";} ?>><?php echo $hp->hospital ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                         </div><!-- /.box-body -->
     

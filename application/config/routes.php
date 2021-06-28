@@ -97,7 +97,9 @@ $route['HospitalInfo_view'] = "user/HospitalInfo_view";
 // $route['hospitals/addNew'] = "hospitals/addNew";
 $route['addNewHospital'] = "hospital_info/add";
 $route['addHospital'] = "hospitals/addNew";
-
+$route['add'] = "hospital_info/add";
+$route['hospital_info/add'] = "hospital_info/add";
+$route['addNewHospital'] = "hospitals/addNewHospital";
 // $route['addNewUser'] = "user/addNewUser";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

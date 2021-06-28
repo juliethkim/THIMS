@@ -96,7 +96,8 @@
   <h3 align="center">Search Hospital Information according to region,category & ownership</h3>
   <br />
 
-  <form action="<?php echo site_url();?>index.php/Home/search_hospitalInfo" method = "POST">
+  <form action="<?php echo base_url() ;?>home/search" method = "POST">
+    
   <div class="form-group">
    <select name="regions" id="regions" class="form-control input-lg">
     <option value="">Select Region</option>
@@ -182,7 +183,7 @@ $(document).ready(function(){
 
 <!--<?php echo anchor('Autocomplete/index','<img src="resources/img/iconServices.jfif"  /> ','class="btn btn-default btn-flat"')?>-->
 
-<a href="<?php echo base_url() ;?>index.php/Hello/newFunction">
+<a href="<?php echo base_url() ;?>index.php/Service_search/search_service">
     <img src="<?php echo base_url() ;?>resources/img/iconServices.jfif">
 </a>
 

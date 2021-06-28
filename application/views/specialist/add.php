@@ -42,7 +42,7 @@
 <br />
 
   <div class="form-group">
-   <select name="tbl_specialization" id="tbl_specialization" class="form-control input-lg">
+   <select name="specialization_id" id="specialization_id" class="form-control input-lg">
     <option value="">Specialization</option>
     <?php
     foreach($tbl_specialization as $row)

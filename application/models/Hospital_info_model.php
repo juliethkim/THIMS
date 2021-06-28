@@ -45,12 +45,37 @@ $this->db->select("a.id, a.name, b.category, c.ownership_type, d.region_name");
 
     }
 
+     function hospital_search($region_id,$ownership_id,$category_id)
+    {
+        $this->db->order_by('id', 'asc');
+        // return $this->db->get('hospital_info')->result_array();
+
+$this->db->select("a.id, a.name, b.category, c.ownership_type, d.region_name");
+    $this->db->from("hospital_info as a");
+    $this->db->join('hospital_category as b', 'a.category_id = b.category_id');
+    $this->db->join('hospital_ownership as c', 'a.ownership_id = c.ownership_id'); 
+    $this->db->join('regions as d', 'a.region_id = d.region_id');   
+     $this->db->where('a.region_id ',$region_id);
+     $this->db->where('a.ownership_id',$ownership_id);
+    $this->db->where('a.category_id',$category_id);
+
+       // join $query = $this ->db->get('services')
+        //return $query->result();
+    $query = $this->db->get();
+      $result = $query->result_array();
+    return $result;
+    
+
+    }
+
      function count_hospitals()
     {
         $this->db->from('hospital_info');
         return $this->db->count_all_results();
     }
 
+
+   
 
 
         
@@ -113,16 +138,22 @@ $this->db->select("a.id, a.name, b.category, c.ownership_type, d.region_name");
     }*/
     
 
-        function addNewHospital($hospitalInfo)
+        function addNewHospital($params)
+
     {
-        $this->db->trans_start();
-        $this->db->insert('hospital_info', $hospitalInfo);
+
+         $this->db->insert('hospital_info',$params);
+        //$this->session_commit('services', $params);
+        return $this->db->insert_id();
         
-        $insert_id = $this->db->insert_id();
+        // $this->db->trans_start();
+        // $this->db->insert('hospital_info');
         
-        $this->db->trans_complete();
+        // $insert_id = $this->db->insert_id();
         
-        return $insert_id;
+        // $this->db->trans_complete();
+        
+        // return $insert_id;
     }
     
 
@@ -145,4 +176,7 @@ $this->db->select("a.id, a.name, b.category, c.ownership_type, d.region_name");
     {
         return $this->db->delete('hospital_info',array('id'=>$id));
     }
+
+
+
 }

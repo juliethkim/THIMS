@@ -7,11 +7,13 @@ class Service extends BaseController{
     {
         parent::__construct();
         $this->load->model('Service_model');
-        $this->load->model('user_model');
+        $this->load->model('User_model');
          $this->load->model('Dynamic_Dependent_model');
+         $this->load->database();
         $this->isLoggedIn();
 
     } 
+
 
     /*
      * Listing of services
@@ -30,9 +32,9 @@ function index()
    // $data['tbl_service_name'] = $this->Service_model->fetch_tbl_service_name();
 
   //$data['hospital_category'] = $this->Dynamic_Dependent_model->fetch_hospital_category();
-     $data['services'] = $this->Service_model->get_all_services();
-        $this->global['pageTitle'] = 'THIMS : Dashboard';
-  $this->load->view('service/index', $data , NULL);
+     $this->global['pageTitle'] = 'THIMS : Dashboard';
+     $data['services'] = $this->Service_model->get_all_services();   
+  $this->loadViews('service/index', $this->global, $data , NULL);
  }
     /*
      * Adding a new service
@@ -44,12 +46,15 @@ function index()
 
 
 
+
         if(isset($_POST) && count($_POST) > 0)     
         {   
 
+
             $params = array(
-                'service_category' => $this->input->post('service_category'),
-                'service_name' => $this->input->post('service_name'),
+                'service_category_id' => $this->input->post('service_category_id'),
+                'service_name_id' => $this->input->post('service_name_id'),
+                'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
                        
             );
 

@@ -144,7 +144,7 @@ class Hospital extends BaseController
                     $this->session->set_flashdata('error', 'Hospital addition failed');
                 }
                 
-                redirect('hospitals/addNew');
+                redirect('hospital_info/add');
             }
         }
     }

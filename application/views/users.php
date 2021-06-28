@@ -34,6 +34,7 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
+                        <!-- <th>User Id</th> -->
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
@@ -49,6 +50,7 @@
                         {
                     ?>
                     <tr>
+                        <!-- <td><?php echo $record->userId ?></td> -->
                         <td><?php echo $record->fname ?></td>
                         <td><?php echo $record->lname ?></td>
                         <td><?php echo $record->email ?></td>

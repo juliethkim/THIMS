@@ -6,7 +6,10 @@ class Home extends CI_Controller {
       public function __construct(){
         parent::__construct();
         $this->load->model('Dynamic_Dependent_model');
-        $this->load->model('HospitalInfo_model');
+        // $this->load->model('HospitalInfo_model');
+           $this->load->model('Hospital_info_model');
+           $this->load->model('Mymodel_model');
+            $this->load->model('User_model');
         $this->load->database();
 
       }   
@@ -87,7 +90,7 @@ class Home extends CI_Controller {
   {
    echo $this->dynamic_dependent_model->fetch_hospital_ownership($this->input->post('region_id'));
   }*/
- }
+
 
 /* function fetch_hospital_category()
  {
@@ -127,23 +130,56 @@ class Home extends CI_Controller {
     }
 
 
-  function search_hospitalInfo()
+    function search()
+ {
+  // $data['regions'] = $this->Dynamic_Dependent_model->fetch_regions();
+  // $data['hospital_ownership'] = $this->Dynamic_Dependent_model->fetch_hospital_ownership();
+  // $data['hospital_category'] = $this->Dynamic_Dependent_model->fetch_hospital_category();
+  // $this->load->view('home_page', $data);
+  // $this->input->get('hospital_info');
+  $region_id=$this->input->post('regions');
+  $ownership_id=$this->input->post('hospital_ownership');
+  $category_id=$this->input->post('hospital_category');
+   $data['results']=$this->Hospital_info_model->hospital_search($region_id,$ownership_id,$category_id);
+
+    $this->load->view("hospital_view",  $data, NULL);
+ 
+ }
+
+
+
+  // function search_hospitalInfo()
+  //   {
+  //       $myhospital = $this->input->post('myhospital'); 
+  //       $data['results'] = $this->HospitalInfo_model->search_hospitalInfo($myhospital);
+
+
+  //       $this->load->view('HospitalInfo_view', $data);
+  //   }
+
+
+
+function get_all_hospital_info()
     {
-        $myhospital = $this->input->post('myhospital'); 
-        $data['results'] = $this->HospitalInfo_model->search_hospitalInfo($myhospital);
+        $hospital = $this->input->post('hospital');
+       // $regions = $this->input->post()
+      
+        $data['results'] = $this->Hospital_info_model->search_hospital($hospital);
+     
 
-
-        $this->load->view('HospitalInfo_view', $data);
+        $this->load->view('hospital_view', $data);
     }
-
-   // public function show_regions($region_name)
-  //  {
-      //  $data = "select * from regions where region_name= region_name"
-       // return response :: json (['message'=> $data])
-  //  }
-
-
 
 
   
+// function hospital_search()
+//     {
+//         $hospitalinfo = $this->input->post('hospitalinfo');
+//        // $regions = $this->input->post()
+      
+//         $data['results'] = $this->Hospital_info_model->hospital_search($hospitalinfo);
+     
 
+//         $this->load->view('hospital_view', $data);
+//     }
+  }

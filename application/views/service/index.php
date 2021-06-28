@@ -9,6 +9,7 @@
                     <a href="<?php echo site_url('service/add'); ?>" class="btn btn-primary btn-sm">Add</a> 
                 </div>
             </div>
+            
             <div class="box-body">
                 <table class="table table-striped">
                     <tr>
@@ -18,7 +19,10 @@
                         <th>Hospital Name</th>
 						<th>Actions</th>
                     </tr>
+                     <?php $prev='0';     ?>
                     <?php foreach($services as $s){ ?>
+                         
+                         <?php if($s != $prev ){ ?>
                     <tr>
 						<td><?php echo $s['id']; ?></td>
 						<td><?php echo $s['service_category']; ?></td>
@@ -29,6 +33,9 @@
                             <a href="<?php echo site_url('service/remove/'.$s['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
+
+                     <?php } ?>
+                      <?php $prev=$s;   ?>
                     <?php } ?>
                 </table>
                                 

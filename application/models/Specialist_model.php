@@ -14,6 +14,7 @@ class Specialist_model extends CI_Model
     function get_specialist($id)
     {
         return $this->db->get_where('specialists',array('id'=>$id))->row_array();
+        
     }
         
     /*
@@ -23,7 +24,7 @@ class Specialist_model extends CI_Model
     {
         $this->db->order_by('id', 'asc');
 
-$this->db->select("a.id, a.specialist_name, b.specialization");
+$this->db->select("a.id, a.specialist_name, b.specialization, c.name");
     $this->db->from("specialists as a");
     $this->db->join('tbl_specialization as b', 'a.specialization_id = b.id');
    $this->db->join('hospital_info as c', 'a.hospital_id = c.id');
@@ -114,3 +115,4 @@ $this->db->select("a.id, a.specialist_name, b.specialization");
     }
 
 }
+
