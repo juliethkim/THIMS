@@ -12,19 +12,23 @@ class User_model extends CI_Model
      * @param string $searchText : This is optional search text
      * @return number $count : This is row count
      */
+
     function userListingCount($searchText = '')
     {
-        $this->db->select('BaseTbl.userId, BaseTbl.email, BaseTbl.fname, BaseTbl.lname, BaseTbl.mobile, BaseTbl.createdDtm, Role.role');
-        $this->db->from('tbl_users as BaseTbl');
-        $this->db->join('tbl_roles as Role', 'Role.roleId = BaseTbl.roleId','left');
+       $this->db->select('a.userId, a.email, a.fname, a.lname, a.mobile, a.createdDtm, b.role, c.name');
+        $this->db->from('tbl_users as a');
+        $this->db->join('tbl_roles as b', 'a.roleId = b.roleId');
+        $this->db->join('hospital_info as c', 'a.hospital_id = c.id');
+          
+
         if(!empty($searchText)) {
-            $likeCriteria = "(BaseTbl.email  LIKE '%".$searchText."%'
-                            OR  BaseTbl.fname  LIKE '%".$searchText."%'
-                            OR  BaseTbl.mobile  LIKE '%".$searchText."%')";
+            $likeCriteria = "(a.email  LIKE '%".$searchText."%'
+                            OR  a.fname  LIKE '%".$searchText."%'
+                            OR  a.mobile  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }
-        $this->db->where('BaseTbl.isDeleted', 0);
-        $this->db->where('BaseTbl.roleId !=', 1);
+        $this->db->where('a.isDeleted', 0);
+        $this->db->where('a.roleId !=', 1);
         $query = $this->db->get();
         
         return $query->num_rows();
@@ -49,6 +53,14 @@ class User_model extends CI_Model
      * Get all users count
      */
 
+ //           function fetch_hospital_info()
+ // {
+ //  $this->db->order_by("id", "ASC");
+ //  $query = $this->db->get("hospital_info");
+ //  return $query->result();
+ // }
+
+
     function count_users()
     {
         $this->db->from('tbl_users');
@@ -64,18 +76,19 @@ class User_model extends CI_Model
      */
     function userListing($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.userId, BaseTbl.email, BaseTbl.fname, BaseTbl.lname, BaseTbl.mobile, BaseTbl.createdDtm, Role.role');
-        $this->db->from('tbl_users as BaseTbl');
-        $this->db->join('tbl_roles as Role', 'Role.roleId = BaseTbl.roleId','left');
+        $this->db->select('a.userId, a.email, a.fname, a.lname, a.mobile, a.createdDtm, b.role, c.name');
+        $this->db->from('tbl_users as a');
+        $this->db->join('tbl_roles as b', 'a.roleId = b.roleId','left');
+        $this->db->join('hospital_info as c', 'a.hospital_id = c.id','left');
         if(!empty($searchText)) {
-            $likeCriteria = "(BaseTbl.email  LIKE '%".$searchText."%'
-                            OR  BaseTbl.fname  LIKE '%".$searchText."%'
-                            OR  BaseTbl.mobile  LIKE '%".$searchText."%')";
+            $likeCriteria = "(a.email  LIKE '%".$searchText."%'
+                            OR  a.fname  LIKE '%".$searchText."%'
+                            OR  a.mobile  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }
-        $this->db->where('BaseTbl.isDeleted', 0);
-        $this->db->where('BaseTbl.roleId !=', 1);
-        $this->db->order_by('BaseTbl.userId', 'ASC');
+        $this->db->where('a.isDeleted', 0);
+        $this->db->where('a.roleId !=', 1);
+        $this->db->order_by('a.userId', 'ASC');
         $this->db->limit($page, $segment);
         $query = $this->db->get();
         
@@ -98,7 +111,7 @@ class User_model extends CI_Model
     }
 
 
- function getHospitalsById()
+ function getUserHospitals()
     {
         $this->db->select('id, name');
         $this->db->from('hospital_info');
@@ -149,7 +162,7 @@ class User_model extends CI_Model
     {
         $this->db->trans_start();
         $this->db->insert('tbl_users', $userInfo);
-        
+         $this->db->insert('hospital_info', $userInfo);
         $insert_id = $this->db->insert_id();
         
         $this->db->trans_complete();
@@ -183,7 +196,28 @@ class User_model extends CI_Model
         
         return $query->row();
     }
+
+    // function gethospitalAdmin($hospital_id)
+    // {
+    //     $this->db->select('userId');
+    //     $this->db->from('tbl_users');
+    //     $this->db->where('hospital_id', $hospital_id);
+    //     $query = $this->db->get();
+        
+    //     return $query->row();
+    // }
     
+ //    function fetch_hospital_info()
+ // {
+ //  $this->db->order_by("id", "ASC");
+ //  $query = $this->db->get("hospital_info");
+ //  return $query->result();
+ // }
+
+ // function get_name($name)
+ //    {
+ //        return $this->db->get_where('hospital_info',array('name'=>$name))->row_array();
+ //    }
     
     /**
      * This function is used to update the user information
@@ -322,7 +356,7 @@ class User_model extends CI_Model
      */
     function getUserInfoById($userId)
     {
-        $this->db->select('userId, fname, lname, email, mobile, roleId');
+        $this->db->select('userId, fname, lname, email, mobile, roleId, hospital_id');
         $this->db->from('tbl_users');
         $this->db->where('isDeleted', 0);
         $this->db->where('userId', $userId);
@@ -358,15 +392,31 @@ class User_model extends CI_Model
      */
     function getUserInfoWithRole($userId)
     {
-        $this->db->select('BaseTbl.userId, BaseTbl.email, BaseTbl.fname, BaseTbl.lname, BaseTbl.mobile, BaseTbl.roleId, Roles.role');
-        $this->db->from('tbl_users as BaseTbl');
-        $this->db->join('tbl_roles as Roles','Roles.roleId = BaseTbl.roleId');
-        $this->db->where('BaseTbl.userId', $userId);
-        $this->db->where('BaseTbl.isDeleted', 0);
+        $this->db->select('a.userId, a.email, a.fname, a.lname, a.mobile, a.roleId, b.role, c.name');
+        $this->db->from('tbl_users as a');
+        $this->db->join('tbl_roles as b','b.roleId = a.roleId');
+        $this->db->where('a.userId', $userId);
+        $this->db->where('a.isDeleted', 0);
         $query = $this->db->get();
         
         return $query->row();
     }
+
+
+
+  // function getUserInfoWithHospitalId($userId)
+  //   {
+  //       $this->db->select('a.userId, a.email, a.fname, a.lname, a.mobile, a.roleId, c.name');
+  //       $this->db->from('tbl_users as a');
+  //       $this->db->join('hospital_info as b','b.id = a.hospital_id');
+  //       $this->db->where('a.userId', $userId);
+  //       $this->db->where('a.isDeleted', 0);
+  //       $query = $this->db->get();
+        
+  //       return $query->row();
+  //   }
+
+
 
 }
 

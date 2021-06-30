@@ -65,10 +65,7 @@ class Service_model extends CI_Model
     function get_all_services()
     {
         $this->db->order_by('id', 'asc');
-        //join('tbl_service_name')
-        //join('tbl_service_category')
-       
-
+    
 $this->db->select("a.id, b.service_category, c.service_name, d.name");
     $this->db->from("services as a");
     $this->db->join('tbl_service_category as b', 'a.service_category_id = b.id');
@@ -76,33 +73,39 @@ $this->db->select("a.id, b.service_category, c.service_name, d.name");
     $this->db->join('hospital_info as d', 'a.hospital_id = d.id');
    
          return $this->db->get('services')->result_array();
+          }
 
-          $query = $this->db->get('services');
-        $result = $query->result();
+    //       $query = $this->db->get('services');
+    //     $result = $query->result();
 
-  /* ->from('table1 as t1')
-     ->where('t1.id', $id)
-     ->join('table2 as t2', 't1.id = t2.id', 'LEFT')
-     ->join('table3 as t3', 't1.id = t3.id', 'LEFT')
-     ->get();   ->from('table1 as t1')
-     ->where('t1.id', $id)
-     ->join('table2 as t2', 't1.id = t2.id', 'LEFT')
-     ->join('table3 as t3', 't1.id = t3.id', 'LEFT')
-     ->get();*/
-         $query = $this->db->get('services');
-        $result = $query->result();
+    //      $query = $this->db->get('services');
+    //     $result = $query->result();
 
-        $cat_id = array('-CHOOSE-');
-        $cat_name = array('-CHOOSE-');
+    //     $cat_id = array('-CHOOSE-');
+    //     $cat_name = array('-CHOOSE-');
         
-        for ($i = 0; $i < count($result); $i++)
-             {
-            array_push($cat_id, $result[$i]->id);
-            array_push($cat_name, $result[$i]->service_name);
-        }
-        return array_combine($cat_id, $cat_name);
-    }
+    //     for ($i = 0; $i < count($result); $i++)
+    //          {
+    //         array_push($cat_id, $result[$i]->id);
+    //         array_push($cat_name, $result[$i]->service_name);
+    //     }
+    //     return array_combine($cat_id, $cat_name);
+   
     
+//Getting services belonging to a specific hospital
+      function get_services_byId($id)
+    {
+        $this->db->order_by('id', 'asc');
+    
+$this->db->select("a.id, b.service_category, c.service_name, d.name");
+    $this->db->from("services as a");
+    $this->db->join('tbl_service_category as b', 'a.service_category_id = b.id');
+    $this->db->join('tbl_service_name as c', 'a.service_name_id = c.id');
+    $this->db->join('hospital_info as d', 'a.hospital_id = d.id');
+    $this->db->join('hospital_admin as e', 'a.hospital_id = d.id');
+   
+         return $this->db->get('services')->result_array();
+          }
         
 
            function count_services()

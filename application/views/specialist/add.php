@@ -72,17 +72,6 @@ $(document).ready(function(){
  });
  });
 
-
-
-
-/*$(document).ready(function(){
- $('#tbl_service_category').change(function(){
-  var id = $('#tbl_service_category').val();
-});
-
-
- 
-});*/
 </script>
 
 

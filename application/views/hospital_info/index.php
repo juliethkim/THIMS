@@ -43,3 +43,26 @@
 </div>
 </section>
 </div>
+<script>
+            $(document).ready( function () {
+                $('#dataTable1').DataTable({
+                    dom:'Bfrtip',
+                    buttons: [
+                         'copy','csv','excel','pdf',
+                        {
+                            extend: [
+                                 'print',
+                            ],
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        },
+                        'colvis'
+                    ],
+                    columnDefs: [{
+                        targets: -1,
+                        visible: true
+                    }]
+                });
+            });
+        </script>

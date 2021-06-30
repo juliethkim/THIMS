@@ -36,17 +36,6 @@ class Hospital_info extends BaseController{
 
 function add()
     {
-        // if($this->isAdmin() == TRUE)
-        // {
-        //     $this->loadThis();
-        // }
-        // else
-        // {
-        //     $this->load->model('Hospital_info_model');
-            // $data['roles'] = $this->user_model->getUserRoles();
-
-            //  $this->load->model('User_model');
-            // $data['regions'] = $this->user_model->getRegions();
             
             $data['roles'] = '';
 
@@ -69,14 +58,24 @@ function add()
                $region = strtolower($this->security->xss_clean($this->input->post('regions')));
                 
                 $hospitalInfo = array('name'=>$name,'category_id'=> $category, 'ownership_id'=> $ownership,'region_id'=>$region);
+                $data['hospital_map'] = $this->Hospital_info_model->get_hospital_map_link($id);
                 
                 $this->load->model('Hospital_info_model');
                 $result = $this->Hospital_info_model->addNewHospital($hospitalInfo);
          }
 
            $this->loadViews("hospital_info/add", $this->global,  $data , NULL);
+    }
 
-        // }
+
+      function getadminhospital($admin_id)
+    {
+        $this->db->select('hospital_id');
+        $this->db->from('hospital_admin');
+        $this->db->where('admin_id', $admin_id);
+        $query = $this->db->get();
+        
+        return $query->row();
     }
 
 }

@@ -40,6 +40,7 @@
                         <th>Email</th>
                         <th>Mobile</th>
                         <th>Role</th>
+                         <th>Hospital Name</th>
                         <th>Created On</th>
                         <th class="text-center">Actions</th>
                     </tr>
@@ -56,6 +57,7 @@
                         <td><?php echo $record->email ?></td>
                         <td><?php echo $record->mobile ?></td>
                         <td><?php echo $record->role ?></td>
+                        <td><?php echo $record->name ?></td>
                         <td><?php echo date("d-m-Y", strtotime($record->createdDtm)) ?></td>
                         <td class="text-center">
                             <a class="btn btn-sm btn-primary" href="<?= base_url().'login-history/'.$record->userId; ?>" title="Login history"><i class="fa fa-history"></i></a> | 

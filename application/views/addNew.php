@@ -107,31 +107,43 @@
                                             ?>
                                         </select>
                                     </div>
-                                </div>  
+                                </div> 
 
 
 
 
                              <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="hospital">Hospital Name</label>
-                                        <select class="form-control required" id="hospital" name="hospital">
+                                        <label for="name">Hospital Name</label>
+                                        <select class="form-control required" id="name" name="name">
                                             <option value="0">Select where this user works at</option>
                                             <?php
-                                            if(!empty($hospitals))
+                                            if(!empty($names))
                                             {
-                                                foreach ($hospitals as $hp)
+                                                foreach ($names as $hp)
                                                 {
                                                     ?>
-                                                    <option value="<?php echo $hp->id ?>" <?php if($hp->id == set_value('hospital')) {echo "selected=selected";} ?>><?php echo $hp->hospital ?></option>
+                                                    <option value="<?php echo $hp->id ?>" <?php if($hp->id == set_value('name')) {echo "selected=selected";} ?>><?php echo $hp->name ?></option>
                                                     <?php
                                                 }
                                             }
                                             ?>
                                         </select>
                                     </div>
-                                </div>
-
+                                </div> 
+ 
+  <!-- <div class="form-group">
+   <select name="hospital_id" id="hospital_id" class="form-control input-lg">
+    <option value="">Hospital</option>
+    <?php
+    foreach($hospital_info as $row)
+      
+    {
+     echo '<option value="'.$row->id.'">'.$row->name.'</option>';
+    }
+    ?>
+   </select>
+  </div> -->
                             </div>
                         </div><!-- /.box-body -->
     
@@ -215,4 +227,13 @@
         });
 
     });
+</script>
+<script>
+$(document).ready(function(){
+ $('#hospital_info').change(function(){
+  var id = $('#hospital_info').val();
+
+ });
+ });
+
 </script>

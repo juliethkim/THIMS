@@ -54,7 +54,8 @@ function index()
             $params = array(
                 'service_category_id' => $this->input->post('service_category_id'),
                 'service_name_id' => $this->input->post('service_name_id'),
-                'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
+                // 'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
+                'hospital_id'=>$this->User_model->getadminhospital($this->hospital_id),
                        
             );
 

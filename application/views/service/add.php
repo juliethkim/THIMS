@@ -13,62 +13,6 @@
 			    </div>
             </div>
             <?php echo form_open('service/add'); ?>
-          	
-			<!--<div class="container body">
-          		<div class="row clearfix">
-					    <div class="col-md-6">
-
-                     <div class="form-group">
-						<label for="service_category" class="control-label">Service Category</label>
-						<div class="form-group">
-							<input type="text" name="service_category" value="<?php echo $this->input->post('service_category'); ?>" class="form-control" id="service_category" />
-						</div>
-					 </div>-->
-
-
-
-
-
-						<!--<label for="service_category" class="control-label"><span class="text-danger">*</span>Service Category</label>
-						<div class="form-group">
-							<select name="service_category" class="form-control">
-								<option value="">select</option>
-								<option value="">Laboratory</option>
-								<option value="">Radiology</option>
-								<option value="">Martenity</option>
-								<option value="">Blood</option>
-								<?php 
-								$service_category_values = array(
-								);
-
-								foreach($service_category_values as $value => $display_text)
-								{
-									$selected = ($value == $this->input->post('service_category')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-								} 
-								?>
-							</select>
-							<span class="text-danger"><?php echo form_error('service_category');?></span>
-						</div>
-					</div>-->
-
-				<!--<div class="container body">
-          			<div class="row clearfix">
-					    <div class="col-md-6">
-
-                   <div class="form-group">
-					<label for="service_name" class="control-label">Service Name</label>
-						<div class="form-group">
-							<input type="text" name="service_name" value="<?php echo $this->input->post('service_name'); ?>" class="form-control" id="service_name" />
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>-->
-
-
 
 <style>
  .box

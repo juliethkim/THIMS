@@ -11,7 +11,7 @@
             </div>
             
             <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped" id="dataTable1">
                     <tr>
 						<th>ID</th>
 						<th>Service Category</th>
@@ -45,3 +45,52 @@
 </div>
 </section>
 </div>
+
+
+<script type="text/javascript">
+                        $(document).ready(function () {
+                            setTimeout(function() {
+                                $('.succWrap').slideUp("slow");
+                            }, 3000);
+                        });
+                    </script>
+
+
+                    <script type="text/javascript">
+    var url = "<?php echo base_url(); ?>";
+    function deleteItem(id){
+       var r = confirm("Are sure that you want to delete this Hospital?");
+        if (r){
+          window.location = url + 'hospital_info/remove/' + id;
+
+        }
+        else{
+          return true;
+        }
+    }
+</script>
+
+
+<script>
+            $(document).ready( function () {
+                $('#dataTable1').DataTable({
+                    dom:'Bfrtip',
+                    buttons: [
+                         'copy','csv','excel','pdf',
+                        {
+                            extend: [
+                                 'print',
+                            ],
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        },
+                        'colvis'
+                    ],
+                    columnDefs: [{
+                        targets: -1,
+                        visible: true
+                    }]
+                });
+            });
+        </script>

@@ -22,7 +22,7 @@
     <td>ownership</td>
     <p class="card-text">Found in</p>
     <td><?php echo $row['region_name']?></td>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="hospital_profile" class="btn btn-primary">View the Hospital Profile</a>
   </div>
 </div>
 

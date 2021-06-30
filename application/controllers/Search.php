@@ -25,5 +25,17 @@ Class Search Extends CI_Controller
  
 
 
+function view_hospital_profile()
+    {
+        $hospital_profile = $this->input->post('hospital_profile');
+       // $regions = $this->input->post()
+      
+        $data['results'] = $this->Mymodel_model->view_hospital_profile($hospital_profile);
+     
+
+        $this->load->view('hospital_profile', $data);
+    }
+ 
+
 }
 ?>

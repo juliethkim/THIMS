@@ -29,7 +29,8 @@ class User extends BaseController
         $this->global['pageTitle'] = 'THIMS : Dashboard';
           $this->load->model('User_model');
             $data['regions'] = $this->user_model->getRegions();
-        
+           $data['tbl_users'] = $this->User_model->userListingCount();
+            // $data['hospital_info'] = $this->User_model->fetch_hospital_info();
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
     
@@ -92,10 +93,10 @@ function addNew()
         {
             $this->load->model('User_model');
             $data['roles'] = $this->user_model->getUserRoles();
-
+            $data['names'] = $this->user_model->getUserHospitals();
 
              $this->load->model('Hospital_info_model');
-            $data['hospital'] = $this->User_model->getHospitalsById();
+            // $data['hospital'] = $this->User_model->getHospitalsById();
             
 
 
@@ -159,6 +160,8 @@ function addRegion()
         
         else
         {
+
+            // $data['hospital_info'] = $this->user_model->fetch_hospital_info();
             $this->load->library('form_validation');
             
             $this->form_validation->set_rules('fname','First Name','trim|required|max_length[128]');
@@ -166,8 +169,8 @@ function addRegion()
             $this->form_validation->set_rules('email','Email','trim|required|valid_email|max_length[128]');
             $this->form_validation->set_rules('password','Password','required|max_length[20]');
             $this->form_validation->set_rules('cpassword','Confirm Password','trim|required|matches[password]|max_length[20]');
-            $this->form_validation->set_rules('role','Role','trim|required|numeric');
-             $this->form_validation->set_rules('hospitalId','hospitaladmin','trim|required|numeric');
+            $this->form_validation->set_rules('role','b','trim|required|numeric');
+             $this->form_validation->set_rules('name','c','trim|required|numeric');
             $this->form_validation->set_rules('mobile','Mobile Number','required|max_length[10]');
             
             if($this->form_validation->run() == FALSE)
@@ -182,10 +185,10 @@ function addRegion()
                 $email = strtolower($this->security->xss_clean($this->input->post('email')));
                 $password = $this->input->post('password');
                 $roleId = $this->input->post('role');
+                $hospital_id = $this->input->post('name');
                 $mobile = $this->security->xss_clean($this->input->post('mobile'));
                 
-                $userInfo = array('email'=>$email, 'password'=>getHashedPassword($password), 'roleId'=>$roleId, 'fname'=> $fname, 'lname'=> $lname,
-                                    'mobile'=>$mobile, 'createdBy'=>$this->vendorId, 'createdDtm'=>date('Y-m-d H:i:s'));
+                $userInfo = array('email'=>$email, 'password'=>getHashedPassword($password), 'roleId'=>$roleId, 'fname'=> $fname, 'lname'=> $lname,'mobile'=>$mobile, 'hospital_id' =>$hospital_id,'createdBy'=>$this->vendorId, 'createdDtm'=>date('Y-m-d H:i:s'));
                 
                 $this->load->model('user_model');
                 $result = $this->user_model->addNewUser($userInfo);
@@ -373,6 +376,7 @@ function addRegion()
     function profile($active = "details")
     {
         $data["userInfo"] = $this->user_model->getUserInfoWithRole($this->vendorId);
+         $data["userInfo"] = $this->user_model->getUserInfoWithHospitalId($this->vendorId);
         $data["active"] = $active;
         
         $this->global['pageTitle'] = $active == "details" ? 'THIMS : My Profile' : 'THIMS : Change Password';
