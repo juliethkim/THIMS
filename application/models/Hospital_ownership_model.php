@@ -24,7 +24,7 @@ class Hospital_ownership_model extends CI_Model
      */
     function get_all_hospital_ownership()
     {
-        $this->db->order_by('id', 'desc');
+        $this->db->order_by('ownership_id', 'asc');
         return $this->db->get('hospital_ownership')->result_array();
     }
         
@@ -42,7 +42,7 @@ class Hospital_ownership_model extends CI_Model
      */
     function update_hospital_ownership($id,$params)
     {
-        $this->db->where('id',$id);
+        $this->db->where('ownership_id',$ownership_id);
         return $this->db->update('hospital_ownership',$params);
     }
     
@@ -51,6 +51,6 @@ class Hospital_ownership_model extends CI_Model
      */
     function delete_hospital_ownership($id)
     {
-        return $this->db->delete('hospital_ownership',array('id'=>$id));
+        return $this->db->delete('hospital_ownership',array('ownership_id'=>$ownership_id));
     }
 }

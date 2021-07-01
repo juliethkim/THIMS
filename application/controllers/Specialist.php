@@ -45,6 +45,18 @@ class Specialist extends BaseController{
 
 
 
+//Adding a function to print pdf report
+ function PDF1()
+ {
+   
+     $this->global['pageTitle'] = 'THIMS : Dashboard';
+      $data['specialists'] = $this->Specialist_model->get_all_specialists(); 
+        $this->load->library('Pdf');
+        // $html = $this->load->view('service/index', [], true, $this->global, $data, NULL);
+        $html = $this->loadViews('specialist/index', [], true, $this->global, $data, NULL);
+        $this->pdf->createPDF($html, 'specialistsPdf', false);
+ }
+
 /*
     function index()
     {

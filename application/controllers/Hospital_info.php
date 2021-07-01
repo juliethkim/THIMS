@@ -28,10 +28,27 @@ class Hospital_info extends BaseController{
     }
 
 
+function profile()
+    {
+        $data['hospital_info'] = $this->Hospital_info_model->get_all_hospital_info();
+        
+        $this->global['pageTitle'] = 'THIMS : Dashboard';
+        $this->loadViews("hospital_info/profile", $this->global,  $data , NULL);
+
+    }
 
 
-
-
+//Adding a function to print pdf report
+ function PDF2()
+ {
+   
+     $this->global['pageTitle'] = 'THIMS : Dashboard';
+      $data['hospital_info'] = $this->Hospital_info_model->get_all_hospital_info(); 
+        $this->load->library('Pdf');
+        // $html = $this->load->view('service/index', [], true, $this->global, $data, NULL);
+        $html = $this->loadViews('hospital_info/index', [], true, $this->global, $data, NULL);
+        $this->pdf->createPDF($html, 'hospitalsPdf', false);
+ }
 
 
 function add()
@@ -61,7 +78,7 @@ function add()
                 $data['hospital_map'] = $this->Hospital_info_model->get_hospital_map_link($id);
                 
                 $this->load->model('Hospital_info_model');
-                $result = $this->Hospital_info_model->addNewHospital($hospitalInfo);
+                $result = $this->Hospital_info_model->addNewHospital($hospitalInfo)->vendorId;
          }
 
            $this->loadViews("hospital_info/add", $this->global,  $data , NULL);

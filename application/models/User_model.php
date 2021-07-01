@@ -43,22 +43,7 @@ class User_model extends CI_Model
         return $this->db->get('tbl_users')->result_array();
     }
 	
-	/* function get_all_regions()
-    {
-        $this->db->order_by('region_id', 'desc');
-        return $this->db->get('regions')->result_array();
-    }*/
 	
-	    /*
-     * Get all users count
-     */
-
- //           function fetch_hospital_info()
- // {
- //  $this->db->order_by("id", "ASC");
- //  $query = $this->db->get("hospital_info");
- //  return $query->result();
- // }
 
 
     function count_users()
@@ -197,27 +182,6 @@ class User_model extends CI_Model
         return $query->row();
     }
 
-    // function gethospitalAdmin($hospital_id)
-    // {
-    //     $this->db->select('userId');
-    //     $this->db->from('tbl_users');
-    //     $this->db->where('hospital_id', $hospital_id);
-    //     $query = $this->db->get();
-        
-    //     return $query->row();
-    // }
-    
- //    function fetch_hospital_info()
- // {
- //  $this->db->order_by("id", "ASC");
- //  $query = $this->db->get("hospital_info");
- //  return $query->result();
- // }
-
- // function get_name($name)
- //    {
- //        return $this->db->get_where('hospital_info',array('name'=>$name))->row_array();
- //    }
     
     /**
      * This function is used to update the user information
@@ -365,24 +329,6 @@ class User_model extends CI_Model
         return $query->row();
     }
 
-//        function hospital_search($hospitalsearch)
-//     {
-//         $this->db->order_by('id', 'asc');
-//         // return $this->db->get('hospital_info')->result_array();
-
-// $this->db->select("a.id, a.name, b.category, c.ownership_type, d.region_name");
-//     $this->db->from("hospital_info as a");
-//     $this->db->join('hospital_category as b', 'a.category_id = b.category_id');
-//     $this->db->join('hospital_ownership as c', 'a.ownership_id = c.ownership_id'); 
-//     $this->db->join('regions as d', 'a.region_id = d.region_id');         
-//        // join $query = $this ->db->get('services')
-//         //return $query->result();
-//     $query = $this->db->get();
-//       $result = $query->result_array();
-//     return $result;
-    
-
-//     }
 
 
     /**
@@ -401,21 +347,6 @@ class User_model extends CI_Model
         
         return $query->row();
     }
-
-
-
-  // function getUserInfoWithHospitalId($userId)
-  //   {
-  //       $this->db->select('a.userId, a.email, a.fname, a.lname, a.mobile, a.roleId, c.name');
-  //       $this->db->from('tbl_users as a');
-  //       $this->db->join('hospital_info as b','b.id = a.hospital_id');
-  //       $this->db->where('a.userId', $userId);
-  //       $this->db->where('a.isDeleted', 0);
-  //       $query = $this->db->get();
-        
-  //       return $query->row();
-  //   }
-
 
 
 }

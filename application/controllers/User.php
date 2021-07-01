@@ -124,7 +124,16 @@ function addRegion()
     
 
 
-
+ function PDF3()
+ {
+   
+     $this->global['pageTitle'] = 'THIMS : Dashboard';
+      $data['tbl_users'] = $this->user_model->get_all_tbl_users(); 
+        $this->load->library('Pdf');
+        // $html = $this->load->view('service/index', [], true, $this->global, $data, NULL);
+        $html = $this->loadViews('users', [], true, $this->global, $data, NULL);
+        $this->pdf->createPDF($html, 'usersPdf', false);
+ } 
 
 
 

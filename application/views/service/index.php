@@ -7,9 +7,11 @@
                 <h3 class="box-title">Services Listing</h3>
             	<div class="box-tools">
                     <a href="<?php echo site_url('service/add'); ?>" class="btn btn-primary btn-sm">Add</a> 
+
+                     <a href="<?php echo site_url('service/PDF'); ?>" class="btn btn-primary btn-sm">PDF</a> 
                 </div>
             </div>
-            
+               <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
             <div class="box-body">
                 <table class="table table-striped" id="dataTable1">
                     <tr>
@@ -47,50 +49,6 @@
 </div>
 
 
-<script type="text/javascript">
-                        $(document).ready(function () {
-                            setTimeout(function() {
-                                $('.succWrap').slideUp("slow");
-                            }, 3000);
-                        });
-                    </script>
 
 
-                    <script type="text/javascript">
-    var url = "<?php echo base_url(); ?>";
-    function deleteItem(id){
-       var r = confirm("Are sure that you want to delete this Hospital?");
-        if (r){
-          window.location = url + 'hospital_info/remove/' + id;
 
-        }
-        else{
-          return true;
-        }
-    }
-</script>
-
-
-<script>
-            $(document).ready( function () {
-                $('#dataTable1').DataTable({
-                    dom:'Bfrtip',
-                    buttons: [
-                         'copy','csv','excel','pdf',
-                        {
-                            extend: [
-                                 'print',
-                            ],
-                            exportOptions: {
-                                columns: ':visible'
-                            }
-                        },
-                        'colvis'
-                    ],
-                    columnDefs: [{
-                        targets: -1,
-                        visible: true
-                    }]
-                });
-            });
-        </script>

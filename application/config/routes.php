@@ -100,6 +100,9 @@ $route['addHospital'] = "hospitals/addNew";
 $route['add'] = "hospital_info/add";
 $route['hospital_info/add'] = "hospital_info/add";
 $route['addNewHospital'] = "hospitals/addNewHospital";
+$route['mypdf'] = "home/service/PDF";
+$route['specialistsPdf'] = "home/specialist/PDF1";
+$route['profile'] = "home/hospital_info/profile";
 // $route['addNewUser'] = "user/addNewUser";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

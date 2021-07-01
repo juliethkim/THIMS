@@ -19,7 +19,7 @@
     <td><?php echo $row['category']?></td>
     <td><?php echo $row['ownership_type']?></td>
     <td><?php echo $row['region_name']?></td>
-      <a href="hello" class="btn btn-primary">Visit hospital Profile</a>
+      <a href="hospital_info/profile" class="btn btn-primary">Visit hospital Profile</a>
   </div>
 </div>
 

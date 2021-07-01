@@ -33,7 +33,7 @@ function view_hospital_profile()
         $data['results'] = $this->Mymodel_model->view_hospital_profile($hospital_profile);
      
 
-        $this->load->view('hospital_profile', $data);
+        $this->load->view('hospital_info/profile', $data);
     }
  
 

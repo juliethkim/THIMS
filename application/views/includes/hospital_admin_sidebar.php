@@ -16,7 +16,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url(); ?>specialist/add"><i class="fa fa-circle-o"></i>Add Specialist</a></li>
-                <li><a href="<?php echo base_url(); ?>'specialist/index"><i class="fa fa-circle-o"></i>View Specialists</a></li>
+                <li><a href="<?php echo base_url(); ?>specialist/index"><i class="fa fa-circle-o"></i>View Specialists</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -38,12 +38,12 @@
               </a>
             </li>
             <li>
-            <li>
+           <!--  <li>
               <a href="<?php echo base_url(); ?>hospital_info/profile" >
                 <i class="fa fa-files-o"></i>
                 <span>Reports</span>
               </a>
-            </li>
+            </li> -->
             </li> 
           </ul>
         </section>

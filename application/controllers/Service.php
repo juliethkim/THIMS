@@ -28,14 +28,31 @@ class Service extends BaseController{
 
 function index()
  {
-    //$data['tbl_service_category'] = $this->Service_model->fetch_tbl_service_category();
-   // $data['tbl_service_name'] = $this->Service_model->fetch_tbl_service_name();
-
-  //$data['hospital_category'] = $this->Dynamic_Dependent_model->fetch_hospital_category();
+   
      $this->global['pageTitle'] = 'THIMS : Dashboard';
-     $data['services'] = $this->Service_model->get_all_services();   
+     $data['services'] = $this->Service_model->get_all_services(); 
+      $this->load->library('Pdf');
+        // $html = $this->load->view('service/index', [], true);
+        // $this->pdf->createPDF($html, 'mypdf', false);  
   $this->loadViews('service/index', $this->global, $data , NULL);
  }
+
+
+//Adding a function to print pdf report
+ function PDF()
+ {
+   
+     $this->global['pageTitle'] = 'THIMS : Dashboard';
+       $data['services'] = $this->Service_model->get_all_services(); 
+        $this->load->library('Pdf');
+        // $html = $this->load->view('service/index', [], true, $this->global, $data, NULL);
+        $html = $this->load->view('service/index', [], true, $data);
+        $this->pdf->createPDF($html, 'mypdf', false);
+ }
+
+
+
+
     /*
      * Adding a new service
      */
@@ -73,6 +90,11 @@ function index()
             $this->loadViews("service/add", $this->global, 	$data , NULL);
         }
     }  
+
+
+
+
+
 
     /*
      * Editing a service
