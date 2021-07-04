@@ -52,7 +52,7 @@
                 <?php echo $success; ?>                    
             </div>
         <?php } ?>
-        <form action="<?php echo base_url(); ?>loginMe" method="post">
+        <form action="<?php echo base_url().'index.php/'; ?>loginMe" method="post">
           <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Email" name="email" required />
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

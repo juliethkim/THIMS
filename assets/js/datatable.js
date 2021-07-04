@@ -1,13 +1,4 @@
-
-
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>THIMS</b> Hospital Information Management System | Version 1.0
-        </div>
-        <strong>Copyright &copy; <a href="<?php echo base_url(); ?>">THIMS <?php echo date('Y'); ?></a>.</strong> All rights reserved.
-    </footer>
-    
-          
+ 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
 
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -133,6 +124,3 @@
     }
 </style>
 
-
-  </body>
-</html>

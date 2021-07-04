@@ -22,18 +22,19 @@
                 <div class="box-header">
                     <h3 class="box-title">Users List</h3>
                     <div class="box-tools">
-                        <form action="<?php echo base_url() ?>userListing" method="POST" id="searchList">
+                        <!-- <form action="<?php echo base_url() ?>userListing" method="POST" id="searchList">
                             <div class="input-group">
                               <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
                               <div class="input-group-btn">
                                 <button class="btn btn-sm btn-default searchList"><i class="fa fa-search"></i></button>
                               </div>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
                 </div><!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover">
+                <div class="box-body ">
+                  <table id="table" class="table table-striped table-bordered dt-responsive nowrap table-sm" style="width:100%"  cellspacing="0" >
+                    <thead>
                     <tr>
                         <!-- <th>User Id</th> -->
                         <th>First Name</th>
@@ -45,12 +46,14 @@
                         <th>Created On</th>
                         <th class="text-center">Actions</th>
                     </tr>
+                    </thead>
                     <?php
                     if(!empty($userRecords))
                     {
                         foreach($userRecords as $record)
                         {
                     ?>
+                    <tbody>
                     <tr>
                         <!-- <td><?php echo $record->userId ?></td> -->
                         <td><?php echo $record->fname ?></td>
@@ -66,6 +69,7 @@
                             <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
+                    </tbody>
                     <?php
                         }
                     }

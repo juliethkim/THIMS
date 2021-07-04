@@ -8,8 +8,9 @@
                 </div>
             </div>
             <div class="box-body">
-                <table class="table table-striped">
-                    <tr>
+                <table id="table" class="table table-striped table-bordered dt-responsive nowrap table-sm" style="width:100%"  cellspacing="0">
+                      <thead>
+					<tr>
 						<th>UserId</th>
 						<th>Password</th>
 						<th>Email</th>
@@ -23,7 +24,9 @@
 						<th>UpdatedDtm</th>
 						<th>Actions</th>
                     </tr>
+					</thead>
                     <?php foreach($tbl_users as $t){ ?>
+					<tbody>
                     <tr>
 						<td><?php echo $t['userId']; ?></td>
 						<td><?php echo $t['password']; ?></td>
@@ -41,6 +44,7 @@
                             <a href="<?php echo site_url('tbl_user/remove/'.$t['userId']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
+					</tbody>
                     <?php } ?>
                 </table>
                                 
