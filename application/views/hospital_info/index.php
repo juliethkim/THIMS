@@ -14,7 +14,8 @@
 
 
             <div class="box-body">
-                <table class="table table-striped">
+                <table id="table" class="table table-striped table-bordered dt-responsive nowrap table-sm" style="width:100%"  cellspacing="0">
+                <thead>
                     <tr>
 						<th>ID</th>
                         <th>Name</th>
@@ -23,7 +24,9 @@
                         <th>Regions</th>
                     <th>Actions</th>
                     </tr>
+                    </thead>
                     <?php foreach($hospital_info as $h){ ?>
+                    <tbody>
                     <tr>
 						<td><?php echo $h['id']; ?></td>
                         <td><?php echo $h['name']; ?></td>
@@ -35,6 +38,7 @@
                             <a href="<?php echo site_url('hospital_info/remove/'.$h['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
+                    </tbody>
                     <?php } ?>
                 </table>
                                 

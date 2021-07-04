@@ -43,6 +43,9 @@
       <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/datatables.net/css/jquery.dataTables.min.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/datatables.net/css/responsive.dataTables.min.css') ?>">
 
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" >
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
+
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
@@ -119,6 +122,8 @@
 	<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>	
 	<script src="<?php echo base_url(); ?>assets/js/TileLayer.Common.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/leaflet-search.js"></script>
+
+   
 
     <style>
     	.error{
@@ -214,15 +219,15 @@
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
 <?php 
-	if($role == ROLE_ADMIN )
+	if($role == 1 )
       {
 	$this->load->view('includes/admin_sidebar'); 
 	  }
-	if($role == ROLE_HOSPITAL_ADMIN)
+	if($role == 2)
       {
 	$this->load->view('includes/hospital_admin_sidebar'); 
 	  }
-    if($role == ROLE_SPECIALIST)
+    if($role == 3)
     {
 $this->load->view('includes/specialist_sidebar'); 
   }
