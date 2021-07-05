@@ -22,11 +22,12 @@
 						<th>Actions</th>
                     </tr>
                      </thead>
+                     <tbody>
                      <?php $prev='0';     ?>
                     <?php foreach($specialists as $s){ ?>
                          
                          <?php if($s != $prev ){ ?>
-                   <tbody>
+                   
                     <tr>
 						<td><?php echo $s['id']; ?></td>
 						<td><?php echo $s['specialist_name']; ?></td>
@@ -38,10 +39,11 @@
                             <a href="<?php echo site_url('specialist/remove/'.$s['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
-                   </tbody>
+                   
                      <?php } ?>
                       <?php $prev=$s;   ?>
                     <?php } ?>
+                    </tbody>
                 </table>
                                 
             </div>

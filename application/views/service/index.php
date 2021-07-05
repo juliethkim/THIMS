@@ -23,11 +23,12 @@
 						<th>Actions</th>
                     </tr>
                     </thead>
+                    <tbody>
                      <?php $prev='0';     ?>
                     <?php foreach($services as $s){ ?>
                          
                          <?php if($s != $prev ){ ?>
-                         <tbody>
+                         
                     <tr>
 						<td><?php echo $s['id']; ?></td>
 						<td><?php echo $s['service_category']; ?></td>
@@ -39,10 +40,11 @@
                         </td>
                     </tr>
                     
-                     </tbody>
+                     
                      <?php } ?>
                       <?php $prev=$s;   ?>
                     <?php } ?>
+                    </tbody>
                 </table>
                                 
             </div>

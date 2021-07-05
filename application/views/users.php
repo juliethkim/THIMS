@@ -47,13 +47,14 @@
                         <th class="text-center">Actions</th>
                     </tr>
                     </thead>
+                    <tbody>
                     <?php
                     if(!empty($userRecords))
                     {
                         foreach($userRecords as $record)
                         {
                     ?>
-                    <tbody>
+                  
                     <tr>
                         <!-- <td><?php echo $record->userId ?></td> -->
                         <td><?php echo $record->fname ?></td>
@@ -69,11 +70,12 @@
                             <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
-                    </tbody>
+                   
                     <?php
                         }
                     }
                     ?>
+                     </tbody>
                   </table>
                   
                 </div><!-- /.box-body -->

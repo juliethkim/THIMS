@@ -25,10 +25,10 @@
                     <th>Actions</th>
                     </tr>
                     </thead>
-                    <?php foreach($hospital_info as $h){ ?>
                     <tbody>
+                    <?php $i =1;  foreach($hospital_info as $h){ ?>
                     <tr>
-						<td><?php echo $h['id']; ?></td>
+						<td><?php echo $i++; ?></td>
                         <td><?php echo $h['name']; ?></td>
 						<td><?php echo $h['category']; ?></td>
                         <td><?php echo $h['ownership_type']; ?></td>
@@ -38,8 +38,9 @@
                             <a href="<?php echo site_url('hospital_info/remove/'.$h['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
-                    </tbody>
+                    
                     <?php } ?>
+                    </tbody>
                 </table>
                                 
             </div>
@@ -48,26 +49,4 @@
 </div>
 </section>
 </div>
-<script>
-            $(document).ready( function () {
-                $('#dataTable1').DataTable({
-                    dom:'Bfrtip',
-                    buttons: [
-                         'copy','csv','excel','pdf',
-                        {
-                            extend: [
-                                 'print',
-                            ],
-                            exportOptions: {
-                                columns: ':visible'
-                            }
-                        },
-                        'colvis'
-                    ],
-                    columnDefs: [{
-                        targets: -1,
-                        visible: true
-                    }]
-                });
-            });
-        </script>
+ 
