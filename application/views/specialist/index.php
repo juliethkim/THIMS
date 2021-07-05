@@ -12,21 +12,21 @@
             </div>
             
             <div class="box-body" >
-                <table class="table table-striped">
+                <table id="table" class="table table-striped table-bordered dt-responsive nowrap table-sm" style="width:100%"  cellspacing="0">
+                   <thead>
                     <tr>
-
 						<th>ID</th>
 						<th>Specialist Name</th>
                         <th>Specialization</th>
                         <th>Hospital Name</th> 
 						<th>Actions</th>
                     </tr>
-
+                     </thead>
                      <?php $prev='0';     ?>
                     <?php foreach($specialists as $s){ ?>
                          
                          <?php if($s != $prev ){ ?>
-                   
+                   <tbody>
                     <tr>
 						<td><?php echo $s['id']; ?></td>
 						<td><?php echo $s['specialist_name']; ?></td>
@@ -38,7 +38,7 @@
                             <a href="<?php echo site_url('specialist/remove/'.$s['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
-                   
+                   </tbody>
                      <?php } ?>
                       <?php $prev=$s;   ?>
                     <?php } ?>
