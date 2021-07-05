@@ -118,6 +118,16 @@
 } );
    
 </script>
+<script>
+$(document).ready(function(){
+  $('.user-menu').on("click", function(){
+     $('.user-profile').toggle();
+  });
+  $('.tasks-menu').on("click", function(){
+     $('.task').toggle();
+  });
+});
+</script>
 
 <style>
     .center {

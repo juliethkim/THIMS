@@ -167,7 +167,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <i class="fa fa-history"></i>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu task">
                   <li class="header"> Last Login : <i class="fa fa-clock-o"></i> <?= empty($last_login) ? "First Time Login" : $last_login; ?></li>
                 </ul>
               </li>
@@ -189,7 +189,7 @@
                   <img src="<?php echo base_url() . $imagepath . strtolower(strtok($imagename," ")) . $ext; ?>" class="user-image" alt="User Image"/>
                   <span class="hidden-xs"><?php echo $name; ?></span>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu  user-profile">
                   <!-- User image -->
                   <li class="user-header">
                     

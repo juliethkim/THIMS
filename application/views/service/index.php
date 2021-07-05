@@ -38,6 +38,7 @@
                             <a href="<?php echo site_url('service/remove/'.$s['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>
+                    
                      </tbody>
                      <?php } ?>
                       <?php $prev=$s;   ?>
