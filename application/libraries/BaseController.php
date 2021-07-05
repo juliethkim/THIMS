@@ -112,7 +112,7 @@ class BaseController extends CI_Controller {
 	 * @param {number} $perPage : This is records per page limit
 	 * @return {mixed} $result : This is array of records and pagination data
 	 */
-	function paginationCompress($link, $count, $perPage = 10, $segment = SEGMENT) {
+	function paginationCompress($link, $count, $perPage = 10, $segment = 'SEGMENT') {
 		$this->load->library ( 'pagination' );
 
 		$config ['base_url'] = base_url () . $link;

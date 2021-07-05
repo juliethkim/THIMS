@@ -12,7 +12,7 @@
             <div class="col-xs-12 text-right">
                 <div class="form-group">
                     <a class="btn btn-primary" href="<?php echo base_url(); ?>addNew"><i class="fa fa-plus"></i> Add New</a>
-                     <a class="btn btn-primary" href="<?php echo base_url(); ?>User/PDF3"><i class="fa fa-plus"></i>PDF</a>
+                    <!--  <a class="btn btn-primary" href="<?php echo base_url(); ?>User/PDF3"><i class="fa fa-plus"></i>PDF</a> -->
                 </div>
             </div>
         </div>

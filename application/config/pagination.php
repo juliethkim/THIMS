@@ -2,7 +2,7 @@
 $config['pagination']['page_query_string'] = TRUE;
 $config['pagination']['uri_segment'] = 3;
                 
-$config['pagination']['per_page'] = RECORDS_PER_PAGE;
+$config['pagination']['per_page'] = 'RECORDS_PER_PAGE';
 
 $config['pagination']['prev_link'] = '‹';
 $config['pagination']['next_link'] = '›';

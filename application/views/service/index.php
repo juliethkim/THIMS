@@ -8,7 +8,7 @@
             	<div class="box-tools">
                     <a href="<?php echo site_url('service/add'); ?>" class="btn btn-primary btn-sm">Add</a> 
 
-                     <a href="<?php echo site_url('service/PDF'); ?>" class="btn btn-primary btn-sm">PDF</a> 
+                    <!--  <a href="<?php //echo site_url('service/PDF'); ?>" class="btn btn-primary btn-sm">PDF</a>  -->
                 </div>
             </div>
                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
@@ -17,13 +17,14 @@
                 <thead>
                     <tr>
 						<th>ID</th>
-						<th>Service Category</th>
-                        <th>Service Name</th>
-                        <th>Hospital Name</th>
+						        <th>Service Category</th>
+                    <th>Service Name</th>
+                    <th>Hospital Name</th>
 						<th>Actions</th>
                     </tr>
                     </thead>
                      <?php $prev='0';     ?>
+                     <!-- <?php //if(is_array($services)): ?> -->
                     <?php foreach($services as $s){ ?>
                          
                          <?php if($s != $prev ){ ?>
@@ -42,6 +43,7 @@
                      </tbody>
                      <?php } ?>
                       <?php $prev=$s;   ?>
+                      <!-- <?php// endif; ?> -->
                     <?php } ?>
                 </table>
                                 
