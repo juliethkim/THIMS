@@ -12,7 +12,6 @@ class Specialist extends BaseController{
           $this->load->model('Dynamic_Dependent_model');
         $this->load->database();
         $this->isLoggedIn();
-        // $this->load->library('calendar');
     } 
 
 
@@ -92,7 +91,9 @@ class Specialist extends BaseController{
     function edit($id)
     {   
         // check if the specialist exists before trying to edit it
-        $data['specialists'] = $this->Specialist_model->get_specialist($id);
+        $data['specialist'] = $this->Specialist_model->get_specialist($id);
+        $hospital_id=$this->User_model->getadminhospital($this->vendorId)->hospital_id;
+         $data['specialists'] = $this->Specialist_model->get_hospital_specialists($hospital_id);
         
         if(isset($data['specialist']['id']))
         {
@@ -110,11 +111,11 @@ class Specialist extends BaseController{
             else
             {
                 $this->global['pageTitle'] = 'THIMS : Dashboard';
-                $this->loadViews("specialist/index", $this->global, 	$data , NULL);
+                $this->loadViews("specialist/edit", $this->global, 	$data , NULL);
             }
         }
         else
-            show_error('The specialist you are trying to edit does not exist.');
+             $this->loadViews("specialist/edit", $this->global, $data , NULL);
     } 
 
     /*

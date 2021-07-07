@@ -60,6 +60,21 @@ $this->db->select("a.id, b.service_category, c.service_name, d.name");
     $this->db->join('hospital_info as d', 'a.hospital_id = d.id');
    
          return $this->db->get('services')->result_array();
+           $query = $this->db->get('services');
+        $result = $query->result();
+
+        $cat_id = array('-CHOOSE-');
+        $cat_name = array('-CHOOSE-');
+        
+        for ($i = 0; $i < count($result); $i++)
+             {
+            array_push($cat_id, $result[$i]->id);
+            array_push($cat_name, $result[$i]->service_name);
+        }
+        return array_combine($cat_id, $cat_name);
+
+
+
           }
 
 

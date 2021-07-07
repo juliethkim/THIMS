@@ -8,7 +8,6 @@
             	<div class="box-tools">
                     <a href="<?php echo site_url('service/add'); ?>" class="btn btn-primary btn-sm">Add</a> 
 
-                    <!--  <a href="<?php //echo site_url('service/PDF'); ?>" class="btn btn-primary btn-sm">PDF</a>  -->
                 </div>
             </div>
                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
@@ -25,8 +24,7 @@
                     </thead>
                     <tbody>
                      <?php $prev='0';     ?>
-                     <!-- <?php //if(is_array($services)): ?> -->
-                    <?php foreach($services as $s){ ?>
+                      <?php foreach($services as $s){ ?>
                          
                          <?php if($s != $prev ){ ?>
                          
@@ -36,7 +34,7 @@
                         <td><?php echo $s['service_name']; ?></td>
                         <td><?php echo $s['name']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('service/edit/'.$s['id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
+                           <!--  <a href="<?php echo site_url('service/edit/'.$s['id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> --> 
                             <a href="<?php echo site_url('service/remove/'.$s['id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
                         </td>
                     </tr>

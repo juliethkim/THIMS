@@ -17,14 +17,20 @@
 					</div>
 				</div>
 
-	       <div class="row clearfix">
-					<div class="col-md-6">
-						<label for="Specialization" class="control-label">Specialization</label>
-						<div class="form-group">
-							<input type="text" name="Specialization" value="<?php echo ($this->input->post('Specialization') ? $this->input->post('Specialization') : $specialist['Specialization']); ?>" class="form-control" id="Specialization" />
-						</div>
-					</div>
-				</div>
+	       <div class="form-group">
+   <select name="specialization_id" id="specialization_id" class="form-control input-lg">
+    <option value="">Specialization</option>
+    <?php
+    foreach($tbl_specialization as $row)
+      
+    {
+     echo '<option value="'.$row->id.'">'.$row->specialization.'</option>';
+    }
+    ?>
+   </select>
+  </div>
+
+
 
 			</div>
 			<div class="box-footer">
@@ -38,3 +44,15 @@
 </div>
 </section>
 </div>
+
+
+
+  <script>
+$(document).ready(function(){
+ $('#tbl_specialization').change(function(){
+  var id = $('#tbl_specialization').val();
+
+ });
+ });
+
+</script>

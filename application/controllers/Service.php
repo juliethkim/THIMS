@@ -79,7 +79,9 @@ function index()
     function edit($id)
     {   
         // check if the service exists before trying to edit it
-        $data['service'] = $this->Service_model->get_service($id);
+          $data['tbl_service_category'] = $this->Service_model->fetch_tbl_service_category();
+    $data['tbl_service_name'] = $this->Service_model->fetch_tbl_service_name();
+        $data['services'] = $this->Service_model->get_all_services($id);
         
         if(isset($data['service']['id']))
         {
@@ -102,7 +104,7 @@ function index()
             }
         }
         else
-            show_error('The service you are trying to edit does not exist.');
+              $this->loadViews("service/edit", $this->global, $data , NULL);
     } 
 
     /*

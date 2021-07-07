@@ -41,6 +41,8 @@
 
 <br />
 
+
+   <div class="col-md-6">  
   <div class="form-group">
    <select name="specialization_id" id="specialization_id" class="form-control input-lg">
     <option value="">Specialization</option>
@@ -53,7 +55,7 @@
     ?>
    </select>
   </div>
- 
+ </div>
   <br />
 
 

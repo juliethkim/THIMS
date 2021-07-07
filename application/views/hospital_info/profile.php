@@ -10,6 +10,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+
   <!-- Favicons -->
   <link href="homestyle/img/favicon.png" rel="icon">
   <link href="homestyle/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -81,23 +82,8 @@
   		    <div class="box-body">
   		    	<h2 style="text-align: center;">
 
-
-
-
-
-<tbody>
-         
-                 <tr>
-                    <td><?php echo ('name'); ?></td>
-                </tr>
-              
-                    </tbody>
-
-
-
-
-
-
+                <?php echo ('name'); ?></td>
+        
             </h2>
   		    	<br>
   		    	<h2>Specialists found in this hospital are:</h2>
