@@ -154,25 +154,25 @@ class Hospital extends BaseController
      * This function is used load user edit information
      * @param number $userId : Optional : This is user id
      */
-    function editOld($Id = NULL)
+    function edit($Id = NULL)
     {
-        if($this->isAdmin() == TRUE || $userId == 1)
+        if($this->isAdmin() == TRUE || $id == 1)
         {
             $this->loadThis();
         }
         else
         {
-            if($userId == null)
+            if($id == null)
             {
                 redirect('hospitalListing');
             }
             
            // $data['roles'] = $this->user_model->getUserRoles();
-            $data['userInfo'] = $this->hospital_model->getHospitalInfo($id);
+            $data['hospital_info'] = $this->hospital_model->getHospitalInfo($id);
             
             $this->global['pageTitle'] = 'THIMS : Edit Hospital';
             
-            $this->loadViews("editOld", $this->global, $data, NULL);
+            $this->loadViews("edit", $this->global, $data, NULL);
         }
     }
     
@@ -197,7 +197,7 @@ class Hospital extends BaseController
             $this->form_validation->set_rules('category','Hospital Category','trim|required|max_length[128]');
             $this->form_validation->set_rules('ownership','Hospital Ownership','required|max_length[20]');
             $this->form_validation->set_rules('region','Region','trim|required|max_length[20]');
-            $this->form_validation->set_rules('district','District','trim|required|max_length[100]');
+            // $this->form_validation->set_rules('district','District','trim|required|max_length[100]');
             
             if($this->form_validation->run() == FALSE)
             {
@@ -236,7 +236,7 @@ class Hospital extends BaseController
                     $this->session->set_flashdata('error', 'Hospital updation failed');
                 }
                 
-                redirect('hospitalListing');
+                redirect('hospital_info/index');
             }
         }
     }

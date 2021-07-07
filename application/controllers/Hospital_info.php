@@ -95,4 +95,74 @@ function add()
         return $query->row();
     }
 
+
+
+
+
+
+
+
+
+
+
+    function edit($id)
+    {   
+        $data['roles'] = '';
+
+            $this->global['pageTitle'] = 'THIMS : Add New Hospital';
+             $data['hospital_category'] = $this->Hospital_info_model->get_hospital_category();
+        $data['hospital_ownership'] = $this->Hospital_info_model->get_hospital_ownership();
+        $data['regions'] = $this->Hospital_info_model->get_regions();
+
+        
+        if(isset($data['hospital_info']['id']))
+        {
+            if(isset($_POST) && count($_POST) > 0)     
+            {   
+                $params = array(
+          'name' => $this->input->post('name'),
+          'hospital_category' => $this->input->post('category_id'),
+          'hospital_ownership' => $this->input->post('ownership_id'),
+          'regions' => $this->input->post('region_id'),
+                );
+
+                $this->Hospital_info_model->update_hospitals($id,$params);            
+                redirect('hospital_info/index');
+            }
+            else
+            {
+                $this->global['pageTitle'] = 'THIMS : Dashboard';
+                $this->loadViews("hospital_info/edit", $this->global,  $data , NULL);
+            }
+        }
+        else
+             $this->loadViews("hospital_info/edit", $this->global, $data , NULL);
+    } 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

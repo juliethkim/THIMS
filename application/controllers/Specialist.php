@@ -63,11 +63,8 @@ class Specialist extends BaseController{
             $params = array(
 				'specialist_name' => $this->input->post('specialist_name'),
                 'specialization_id' => $this->input->post('specialization_id'),
-                 // 'hospital_id' => $this->input->post('name'),
                  'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
-                
-
-
+ 
             );
 
 
@@ -91,11 +88,13 @@ class Specialist extends BaseController{
     function edit($id)
     {   
         // check if the specialist exists before trying to edit it
+        $data['tbl_specialization'] = $this->Specialist_model->fetch_tbl_specialization();
         $data['specialist'] = $this->Specialist_model->get_specialist($id);
         $hospital_id=$this->User_model->getadminhospital($this->vendorId)->hospital_id;
          $data['specialists'] = $this->Specialist_model->get_hospital_specialists($hospital_id);
+
         
-        if(isset($data['specialist']['id']))
+        if(isset($data['specialists']['id']))
         {
             if(isset($_POST) && count($_POST) > 0)     
             {   

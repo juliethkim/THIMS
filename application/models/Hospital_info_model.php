@@ -76,12 +76,7 @@ $this->db->select("a.id, a.name, b.category, c.ownership_type, d.region_name");
 
 
    
-    function get_hospital_map_link($id)
-    {
-        $this->db->select('map_link');
-        return $this->db->get_where('hospital_info',array('id'=>$id))->row_array();
-    }
-
+   
 
         
     /*

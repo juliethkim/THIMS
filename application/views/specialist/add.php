@@ -5,6 +5,7 @@
         <div class="box box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">Specialist Add</h3>
+
           <div class="box-tools">
                 <?php if($role == 'ROLE_HOSPITAL_ADMIN' ){ ?>
               <a href="<?php echo site_url('specialist/index'); ?>" class="btn btn-primary btn-sm">View</a>
@@ -88,3 +89,4 @@ $(document).ready(function(){
 </div>
 </section>
 </div>
+

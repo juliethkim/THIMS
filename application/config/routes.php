@@ -106,7 +106,8 @@ $route['profile'] = "home/hospital_info/profile";
 $route['hospital_profile/(:any)'] = "search/view_hospital_profile/$1";
 $route['specialist/edit/(:any)'] = "Specialist/edit/$1";
 $route['service/edit/(:any)'] = "Service/edit/$1";
-
+$route['hospital_info/edit(:any)'] = "Hospital_info/editHospital/$1";
+$route['hospital_info/remove(:any)'] = "Hospital_info/remove/$1";
 // $route['addNewUser'] = "user/addNewUser";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
