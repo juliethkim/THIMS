@@ -105,7 +105,7 @@ function add()
 
 
 
-    function edit($id)
+    function update_hospitals($id)
     {   
         $data['roles'] = '';
 
