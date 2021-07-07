@@ -31,3 +31,4 @@ DATABASE NAME:thims_db.sql
 
 NB: The database has no data for now other than user management.
 Connection between view and model is not yet done
+# THIMS1
