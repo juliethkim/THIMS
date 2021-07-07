@@ -10,6 +10,11 @@ Class Search Extends CI_Controller
 
         $this->load->database();
         $this->load->model('Mymodel_model');
+        $this->load->model('Service_model');
+        $this->load->model('Specialist_model');
+
+
+
     }
 
     function search_hospital()
@@ -25,17 +30,16 @@ Class Search Extends CI_Controller
  
 
 
-function view_hospital_profile()
-    {
-        $hospital_profile = $this->input->post('hospital_profile');
-       // $regions = $this->input->post()
-      
-        $data['results'] = $this->Mymodel_model->view_hospital_profile($hospital_profile);
-     
+function view_hospital_profile($hospital_id)
+ {
 
-        $this->load->view('hospital_info/profile', $data);
-    }
- 
+  $data['specialists'] = $this->Specialist_model->get_hospital_specialists($hospital_id);
+  $data['services'] = $this->Service_model->get_hospital_services($hospital_id); 
+
+
+  $this->load->view('hospital_info/profile', $data);
+
+ }
 
 }
 ?>

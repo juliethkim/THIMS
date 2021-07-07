@@ -103,6 +103,7 @@ $route['addNewHospital'] = "hospitals/addNewHospital";
 $route['mypdf'] = "home/service/PDF";
 $route['specialistsPdf'] = "home/specialist/PDF1";
 $route['profile'] = "home/hospital_info/profile";
+$route['hospital_profile/(:any)'] = "search/view_hospital_profile/$1";
 // $route['addNewUser'] = "user/addNewUser";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -75,7 +75,7 @@ function add()
                $region = strtolower($this->security->xss_clean($this->input->post('regions')));
                 
                 $hospitalInfo = array('name'=>$name,'category_id'=> $category, 'ownership_id'=> $ownership,'region_id'=>$region);
-                $data['hospital_map'] = $this->Hospital_info_model->get_hospital_map_link($id);
+                // $data['hospital_map'] = $this->Hospital_info_model->get_hospital_map_link($id);
                 
                 $this->load->model('Hospital_info_model');
                 $result = $this->Hospital_info_model->addNewHospital($hospitalInfo)->vendorId;

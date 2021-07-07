@@ -37,6 +37,7 @@
                     <thead>
                     <tr>
                         <!-- <th>User Id</th> -->
+                        <th>SN</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
@@ -57,6 +58,7 @@
                   
                     <tr>
                         <!-- <td><?php echo $record->userId ?></td> -->
+                        <td><?php echo $record->SN ?></td>
                         <td><?php echo $record->fname ?></td>
                         <td><?php echo $record->lname ?></td>
                         <td><?php echo $record->email ?></td>

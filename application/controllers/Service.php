@@ -19,36 +19,15 @@ class Service extends BaseController{
      * Listing of services
      */
     
-   /* function index()
-    {
-        $data['services'] = $this->Service_model->get_all_services();
-        $this->global['pageTitle'] = 'THIMS : Dashboard';
-		$this->loadViews("service/index", $this->global, 	$data , NULL);
-    }*/
 
 function index()
  {
-   
+   $hospital_id=$this->User_model->getadminhospital($this->vendorId)->hospital_id;
      $this->global['pageTitle'] = 'THIMS : Dashboard';
-     $data['services'] = $this->Service_model->get_all_services(); 
-      $this->load->library('Pdf');
-        // $html = $this->load->view('service/index', [], true);
-        // $this->pdf->createPDF($html, 'mypdf', false);  
+     $data['services'] = $this->Service_model->get_hospital_services($hospital_id);  
   $this->loadViews('service/index', $this->global, $data , NULL);
  }
 
-
-//Adding a function to print pdf report
- function PDF()
- {
-   
-     $this->global['pageTitle'] = 'THIMS : Dashboard';
-       $data['services'] = $this->Service_model->get_all_services(); 
-        $this->load->library('Pdf');
-        // $html = $this->load->view('service/index', [], true, $this->global, $data, NULL);
-        $html = $this->load->view('service/index', [], true, $data);
-        $this->pdf->createPDF($html, 'mypdf', false);
- }
 
 
 
@@ -71,9 +50,7 @@ function index()
             $params = array(
                 'service_category_id' => $this->input->post('service_category_id'),
                 'service_name_id' => $this->input->post('service_name_id'),
-                // 'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
-                'hospital_id'=>$this->User_model->getadminhospital($this->hospital_id),
-                       
+                'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,       
             );
 
 

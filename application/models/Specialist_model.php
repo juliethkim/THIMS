@@ -44,7 +44,30 @@ $this->db->select("a.id, a.specialist_name, b.specialization, c.name");
         return array_combine($cat_id, $cat_name);
     }
 
+ function get_hospital_specialists($hospital_id)
+    {
+        $this->db->order_by('id', 'asc');
 
+$this->db->select("a.id, a.specialist_name, b.specialization, c.name");
+    $this->db->from("specialists as a");
+    $this->db->where("a.hospital_id",$hospital_id);
+    $this->db->join('tbl_specialization as b', 'a.specialization_id = b.id');
+   $this->db->join('hospital_info as c', 'a.hospital_id = c.id');
+        return $this->db->get('specialists')->result_array();
+
+          $query = $this->db->get('specialists');
+        $result = $query->result();
+
+        $cat_id = array('-CHOOSE-');
+        $cat_name = array('-CHOOSE-');
+        
+        for ($i = 0; $i < count($result); $i++)
+             {
+            array_push($cat_id, $result[$i]->id);
+            array_push($cat_name, $result[$i]->specialist_name);
+        }
+        return array_combine($cat_id, $cat_name);
+    }
 
       function count_specialists()
     {
@@ -54,38 +77,13 @@ $this->db->select("a.id, a.specialist_name, b.specialization, c.name");
 
 
 
-
     function fetch_tbl_specialization()
  {
   $this->db->order_by("id", "ASC");
   $query = $this->db->get("tbl_specialization");
   return $query->result();
  }
-
-
-
-
-    /* function get_tbl_specialization()
-    {
-        $query = $this->db->get('tbl_specialization');
-        $result = $query->result();
-
-        $cat_id = array('-CHOOSE-');
-        $cat_name = array('-CHOOSE-');
-        
-        for ($i = 0; $i < count($result); $i++)
-        {
-            array_push($cat_id, $result[$i]->id);
-            array_push($cat_name, $result[$i]->specialization);
-        }
-        return array_combine($cat_id, $cat_name);
-    }*/
-
-
-
-
-
-        
+      
     /*
      * function to add new specialist
      */

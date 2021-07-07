@@ -62,25 +62,7 @@ class User extends BaseController
         }
     }
 
-    /**
-     * This function is used to load the add new form
-     */
-   /* function addNew()
-    {
-        if($this->isAdmin() == TRUE)
-        {
-            $this->loadThis();
-        }
-        else
-        {
-            $this->load->model('user_model');
-            $data['roles'] = $this->user_model->getUserRoles();
-            
-            $this->global['pageTitle'] = 'THIMS : Add New User';
-
-            $this->loadViews("addNew", $this->global, $data, NULL);
-        }
-    }*/
+   
 
 
 function addNew()

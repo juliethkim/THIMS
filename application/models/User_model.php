@@ -147,7 +147,7 @@ class User_model extends CI_Model
     {
         $this->db->trans_start();
         $this->db->insert('tbl_users', $userInfo);
-         $this->db->insert('hospital_info', $userInfo);
+         // $this->db->insert('hospital_info', $userInfo);
         $insert_id = $this->db->insert_id();
         
         $this->db->trans_complete();

@@ -7,7 +7,7 @@
                 <h3 class="box-title">Specialists Listing</h3>
             	<div class="box-tools">
                     <a href="<?php echo site_url('specialist/add'); ?>" class="btn btn-primary btn-sm">Add</a> 
-                      <a href="<?php echo site_url('specialist/PDF1'); ?>" class="btn btn-primary btn-sm">PDF</a>
+                      <!-- <a href="<?php //echo site_url('specialist/PDF1'); ?>" class="btn btn-primary btn-sm">PDF</a> -->
                 </div>
             </div>
             

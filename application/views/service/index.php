@@ -17,9 +17,9 @@
                 <thead>
                     <tr>
 						<th>ID</th>
-						        <th>Service Category</th>
-                    <th>Service Name</th>
-                    <th>Hospital Name</th>
+						<th>Service Category</th>
+                        <th>Service Name</th>
+                        <th>Hospital Name</th>
 						<th>Actions</th>
                     </tr>
                     </thead>
@@ -44,7 +44,6 @@
                      
                      <?php } ?>
                       <?php $prev=$s;   ?>
-                      <!-- <?php// endif; ?> -->
                     <?php } ?>
                     </tbody>
                 </table>

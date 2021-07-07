@@ -8,7 +8,7 @@
                 <h3 class="box-title">Hospital Info Listing</h3>
             	<div class="box-tools">
                     <a href="<?php echo site_url('hospital_info/add'); ?>" class="btn btn-success btn-sm">Add</a> 
-                      <a href="<?php echo site_url('hospital_info/PDF2'); ?>" class="btn btn-success btn-sm">PDF</a> 
+                      <!-- <a href="<?php //echo site_url('hospital_info/PDF2'); ?>" class="btn btn-success btn-sm">PDF</a>  -->
                 </div>
             </div>
 

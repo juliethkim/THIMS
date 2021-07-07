@@ -31,12 +31,12 @@
                 <li><a href="<?php echo base_url(); ?>service/index"><i class="fa fa-circle-o"></i>View Services</a></li>
              </ul>
             </li>
-             <li> 
-              <a href="<?php echo base_url(); ?>hospital_info/profile" >
+             <!-- <li> 
+              <a href="<?php //echo base_url(); ?>hospital_info/profile" >
                 <i class="fa fa-table"></i>
                 <span>Hospital Profile</span>
               </a>
-            </li>
+            </li> -->
             <li>
            <!--  <li>
               <a href="<?php echo base_url(); ?>hospital_info/profile" >

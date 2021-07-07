@@ -37,7 +37,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">THIMS</a></h1>
+      <h1 class="logo me-auto"><a href="index.html"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -57,11 +57,11 @@
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+      <div class="row" style="width: 100% ">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="width: 100% ">
          
-          <h1>Find Hospital Information as quick as possible</h1>
-          <h2>We care your health and well being!</h2>
+          <h1 class="display-3" style="width: 100% ">TANZANIA HOSPITAL INFORMATION MANAGEMENT SYSTEM(THIMS)</h1>
+          <h2>We care your health and well being!Find Hospital Information as quick as possible</h2>
          
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -90,7 +90,7 @@
  </style>
 </head>
 <body>
- <div class="container box">
+ <div class="container box"  >
   <br />
   <br />
   <h3 align="center">Search Hospital Information according to region,category & ownership</h3>
@@ -99,7 +99,7 @@
   <form action="<?php echo base_url() ;?>home/search" method = "POST">
     
   <div class="form-group">
-   <select name="regions" id="regions" class="form-control input-lg">
+   <select name="regions" id="regions" class="form-control input-lg" style="height: 55px">
     <option value="">Select Region</option>
     <?php
     foreach($regions as $row)
@@ -112,7 +112,7 @@
   <br />
  
    <div class="form-group">
-   <select name="hospital_ownership" id="hospital_ownership" class="form-control input-lg">
+   <select name="hospital_ownership" id="hospital_ownership" class="form-control input-lg" style="height: 55px">
     <option value="">Select Ownership</option>
     <?php
     foreach($hospital_ownership as $row)
@@ -125,7 +125,7 @@
   <br />
 
 <div class="form-group">
-   <select name="hospital_category" id="hospital_category" class="form-control input-lg">
+   <select name="hospital_category" id="hospital_category" class="form-control input-lg" style="height: 55px">
     <option value="">Select Category</option>
     <?php
     foreach($hospital_category as $row)
@@ -168,6 +168,81 @@ $(document).ready(function(){
 </form>
 </main>
 <br>
+<br>
+<br>
+
+
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="resources/img/img1.png" alt="">
+        </div>
+        <div class="item">
+            <img src="resources/img/img2.png" alt="">
+        </div>
+        <div class="item">
+            <img src="resources/img/img3.png" alt="">
+        </div>
+         <div class="item">
+            <img src="resources/img/img4.png" alt="">
+        </div>
+         <div class="item">
+            <img src="resources/img/img5.png" alt="">
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<script type="text/javascript">
+// Call carousel manually
+$('#myCarouselCustom').carousel();
+
+// Go to the previous item
+$("#prevBtn").click(function(){
+    $("#myCarouselCustom").carousel("prev");
+});
+// Go to the previous item
+$("#nextBtn").click(function(){
+    $("#myCarouselCustom").carousel("next");
+});
+</script>
+
+<script type="text/javascript">
+$('.carousel').carousel({
+     interval: 2000,
+     pause:true,
+     wrap:false
+});
+</script>
+
+<br>
+<br>
+<br>
+
+
+
+
 
 
 <br>

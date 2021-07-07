@@ -9,6 +9,7 @@ class Specialist extends BaseController{
         parent::__construct();
         $this->load->model('Specialist_model');
         $this->load->model('User_model');
+          $this->load->model('Dynamic_Dependent_model');
         $this->load->database();
         $this->isLoggedIn();
         // $this->load->library('calendar');
@@ -22,27 +23,15 @@ class Specialist extends BaseController{
 
   function index()
     {
+
+        $hospital_id=$this->User_model->getadminhospital($this->vendorId)->hospital_id;
          $this->global['pageTitle'] = 'THIMS : Dashboard';
-         $data['specialists'] = $this->Specialist_model->get_all_specialists();
+         $data['specialists'] = $this->Specialist_model->get_hospital_specialists($hospital_id);
          $data['tbl_specializaton'] = $this->Specialist_model->fetch_tbl_specialization();
         
         $this->loadViews('specialist/index', $this->global, $data , NULL);   
     }
     
-    /*function validate_dropdown($str)
-    {
-        if ($str == '-CHOOSE-')
-        {
-            $this->form_validation->set_message('validate_dropdown', 'Please choose a valid %s');
-            return FALSE;
-        }
-        else
-        {
-            return TRUE;
-        }
-    }*/
-
-
 
 
 //Adding a function to print pdf report
@@ -57,15 +46,6 @@ class Specialist extends BaseController{
         $this->pdf->createPDF($html, 'specialistsPdf', false);
  }
 
-/*
-    function index()
-    {
-        $data['specialists'] = $this->Specialist_model->get_all_specialists();
-             $this->form_validation->set_rules('category', 'Category', 'callback_validate_dropdown');
-        $this->global['pageTitle'] = 'THIMS : Dashboard';
-		$this->loadViews("specialist/index", $this->global, 	$data , NULL);
-    }*/
-
     /*
      * Adding a new specialist
      */
@@ -76,15 +56,17 @@ class Specialist extends BaseController{
         $data['tbl_specialization'] = $this->Specialist_model->fetch_tbl_specialization();
         // $data['specialists'] = $this->Specialist_model->fetch_specialists();
         $data['specialists'] = $this->Specialist_model->get_all_specialists();
-         //$this->load->library('calendar');
-    //echo $this->calendar->generate();
+
+        
 
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
 				'specialist_name' => $this->input->post('specialist_name'),
                 'specialization_id' => $this->input->post('specialization_id'),
-                'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
+                 // 'hospital_id' => $this->input->post('name'),
+                 'hospital_id'=>$this->User_model->getadminhospital($this->vendorId)->hospital_id,
+                
 
 
             );

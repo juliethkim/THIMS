@@ -40,9 +40,9 @@ $ci->load->model('Service_model');
                 </div>
                   <a href="specialist/index" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
-            </div><!-- ./col -->
+            </div>
            
-            </div><!-- ./col -->
+            </div>
 
           </div>
     </section>

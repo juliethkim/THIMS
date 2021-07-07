@@ -15,8 +15,6 @@ Class Service_search Extends CI_Controller
     function search_service()
     {
         $service = $this->input->post('service');
-       // $regions = $this->input->post()
-      
         $data['results'] = $this->Service_search_model->search_service($service);
      
 
